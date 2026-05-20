@@ -1,0 +1,23 @@
+Notes thi GK
+
+Linear Programming
+Giải bài toán có hàm mục tiêu tuyến tính với ràng buộc tuyến tính. Nghiệm nằm ở đỉnh và tập khả thi là đa diện lồi 
+
+Interger Programming
+Tiếp tục là giải bài toán có hàm mục tiêu tuyến tính với ràng buộc tuyến tính, nhưng một số biến thì rời rạc (cụ thể là số nguyên).
+Bài này có 1 trò là cứ giải luôn mà bỏ qua điều kiện rời rạc của biến, rồi sau đó giới hạn lại sau (kiểu giải ra x <= 1.5 thì từ đó x <=1).
+Bài toán giải mà bỏ điều kiện gọi là relax LP
+Ngoài việc giải bằng or_tools thì có thể giải bằng branch and bound, tính đúng đắn phụ thuộc xem branch and bound phân hoạch miền nghiệm nguyên có tốt hay ko?
+(Kiểu như miềm nghiệm là Z^n và bị chặn thì đương nhiên vét cạn phải ra nếu khả thi)
+
+Constrant Programming 
+Này là giải 1 cái hàm gì đó với 1 ràng buộc gì đó, và nó giải bằng search kết hợp propagation 
+Kiểu như giải bài toán điền các số vào sudoku vậy
+Thế thì có vẻ nó chỉ làm việc với biến nguyên (rời rạc) thôi
+
+Heuristic:
+- Greedy: tham lam, chọn theo tùy hứng 
+- Local search: nhảy sang hàng xóm
+- Leo đồi: nhảy sang hàng xóm tốt hơn 
+- Luyện kim: nhảy sang hàng xóm theo xác suất về độ tốt hơn
+

@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harvest Planning Optimization - Slides</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --ink: #1f2933;
+      --muted: #64707d;
+      --line: #d8d1c6;
+      --accent: #1f7a6d;
+      --accent-2: #b45309;
+      --code-bg: #18212b;
+      --code-ink: #eef5f7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    .deck {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      min-height: 100vh;
+      padding: 56px 72px 72px;
+      position: relative;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: 58px;
+      line-height: 1.04;
+      max-width: 950px;
+    }
+
+    h2 {
+      font-size: 42px;
+      line-height: 1.1;
+      margin-bottom: 28px;
+    }
+
+    h3 {
+      font-size: 24px;
+      margin: 22px 0 8px;
+    }
+
+    p {
+      max-width: 980px;
+      font-size: 22px;
+      margin: 14px 0;
+    }
+
+    ul, ol {
+      max-width: 1000px;
+      margin: 12px 0;
+      padding-left: 28px;
+      font-size: 21px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px 24px;
+      background: rgba(255, 255, 255, .48);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .formula {
+      display: inline-block;
+      border-left: 4px solid var(--accent);
+      background: rgba(255, 255, 255, .6);
+      padding: 16px 20px;
+      margin: 12px 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 20px;
+      white-space: pre-wrap;
+    }
+
+    pre {
+      max-width: 1080px;
+      margin: 16px 0 0;
+      padding: 20px 22px;
+      border-radius: 8px;
+      background: var(--code-bg);
+      color: var(--code-ink);
+      font-size: 17px;
+      line-height: 1.45;
+      overflow: auto;
+      max-height: 58vh;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: min(1050px, 100%);
+      background: rgba(255,255,255,.6);
+      font-size: 19px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      text-align: right;
+    }
+
+    th:first-child, td:first-child {
+      text-align: left;
+    }
+
+    th {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 18px;
+      margin-top: 18px;
+    }
+
+    .footer {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 15px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+
+    .badge {
+      display: inline-block;
+      color: white;
+      background: var(--accent);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    .warn {
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+
+    .illustration {
+      width: min(980px, 100%);
+      margin-top: 24px;
+      padding: 18px 18px 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.52));
+      box-shadow: 0 12px 28px rgba(31, 41, 51, .06);
+    }
+
+    .illustration svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .diagram-label {
+      fill: var(--ink);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .diagram-subtle {
+      fill: var(--muted);
+      font-size: 14px;
+    }
+
+    .diagram-line {
+      stroke: #6b7280;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .diagram-soft-line {
+      stroke: #c9cfd6;
+      stroke-width: 2;
+      stroke-dasharray: 7 8;
+      stroke-linecap: round;
+    }
+
+    .diagram-node {
+      fill: #ffffff;
+      stroke: var(--accent);
+      stroke-width: 3;
+    }
+
+    .diagram-node-filled {
+      fill: var(--accent);
+      stroke: var(--accent);
+      stroke-width: 3;
+    }
+
+    .diagram-box {
+      fill: rgba(31, 122, 109, .08);
+      stroke: rgba(31, 122, 109, .35);
+      stroke-width: 2;
+      rx: 16;
+      ry: 16;
+    }
+
+    .diagram-box-warm {
+      fill: rgba(180, 83, 9, .08);
+      stroke: rgba(180, 83, 9, .35);
+      stroke-width: 2;
+      rx: 16;
+      ry: 16;
+    }
+
+    @media (max-width: 820px) {
+      .slide {
+        padding: 34px 24px 76px;
+      }
+      h1 {
+        font-size: 38px;
+      }
+      h2 {
+        font-size: 31px;
+      }
+      p, ul, ol {
+        font-size: 18px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .footer {
+        left: 24px;
+        right: 24px;
+      }
+      pre {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide active">
+      <div class="kicker">Planning Optimization</div>
+      <h1>Harvest Planning with Daily Factory Capacity</h1>
+      <p>Bài toán lập lịch thu hoạch nhiều ruộng, tối đa hóa sản lượng được chọn trong khi mỗi ngày nhà máy phải đạt ngưỡng tối thiểu và không vượt capacity.</p>
+      <p><span class="badge">Greedy</span><span class="badge">Local Search</span><span class="badge">DP</span><span class="badge">MIP/CP OR-Tools</span></p>
+      <div class="illustration" aria-label="Harvest timeline illustration">
+        <svg viewBox="0 0 920 210" role="img">
+          <defs>
+            <marker id="arrow-head-title" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L10,5 L0,10 z" fill="#1f7a6d"></path>
+            </marker>
+          </defs>
+          <text x="20" y="28" class="diagram-label">Ruộng có cửa sổ ngày khả thi</text>
+          <line x1="70" y1="76" x2="850" y2="76" class="diagram-soft-line"></line>
+          <line x1="70" y1="146" x2="850" y2="146" class="diagram-soft-line"></line>
+          <rect x="120" y="58" width="170" height="36" class="diagram-box"></rect>
+          <rect x="280" y="58" width="210" height="36" class="diagram-box-warm"></rect>
+          <rect x="560" y="58" width="180" height="36" class="diagram-box"></rect>
+          <circle cx="120" cy="76" r="12" class="diagram-node-filled"></circle>
+          <circle cx="290" cy="76" r="12" class="diagram-node"></circle>
+          <circle cx="490" cy="76" r="12" class="diagram-node-filled"></circle>
+          <circle cx="560" cy="76" r="12" class="diagram-node"></circle>
+          <circle cx="740" cy="76" r="12" class="diagram-node-filled"></circle>
+          <line x1="120" y1="76" x2="290" y2="76" class="diagram-line" marker-end="url(#arrow-head-title)"></line>
+          <line x1="290" y1="76" x2="490" y2="76" class="diagram-line" marker-end="url(#arrow-head-title)"></line>
+          <line x1="490" y1="76" x2="740" y2="76" class="diagram-line" marker-end="url(#arrow-head-title)"></line>
+          <text x="116" y="116" class="diagram-subtle">t = s_i</text>
+          <text x="488" y="116" class="diagram-subtle">chọn ngày</text>
+          <text x="724" y="116" class="diagram-subtle">t = e_i</text>
+          <rect x="70" y="132" width="780" height="30" rx="15" fill="#e7f3ef"></rect>
+          <rect x="310" y="132" width="240" height="30" rx="15" fill="#1f7a6d"></rect>
+          <text x="86" y="153" class="diagram-subtle">load[t]</text>
+          <text x="382" y="153" fill="#ffffff" font-size="14" font-weight="700">m <= load[t] <= M</text>
+        </svg>
+      </div>
+      <div class="footer"><span>Slide 1</span><span>Use ← / → or Space</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Problem</div>
+      <h2>Phát biểu bài toán</h2>
+      <ul>
+        <li>Có `N` ruộng, ruộng `i` có sản lượng `d_i`.</li>
+        <li>Ruộng `i` chỉ có thể thu hoạch trong khoảng ngày `[s_i, e_i]`.</li>
+        <li>Mỗi ngày nhà máy xử lý tối đa `M` sản phẩm.</li>
+        <li>Nếu tổng sản phẩm trong ngày nhỏ hơn `m`, nhà máy không hoạt động.</li>
+        <li>Mỗi ruộng được chọn hoặc bỏ qua; nếu chọn thì gán đúng một ngày thu hoạch.</li>
+      </ul>
+
+      <div class="illustration" aria-label="Factory capacity illustration">
+            <svg viewBox="0 0 920 220" role="img">
+              <rect x="310" y="118" width="280" height="32" rx="16" fill="#1f7a6d"></rect>
+          <rect x="310" y="118" width="150" height="32" rx="16" fill="#b45309"></rect>
+          <line x1="310" y1="104" x2="310" y2="170" class="diagram-line"></line>
+          <line x1="590" y1="104" x2="590" y2="170" class="diagram-line"></line>
+          <text x="130" y="98" class="diagram-subtle">0</text>
+          <text x="300" y="98" class="diagram-label">m</text>
+          <text x="572" y="98" class="diagram-label">M</text>
+          <text x="620" y="137" fill="#ffffff" font-size="15" font-weight="700">ngày được mở</text>
+          <circle cx="200" cy="170" r="14" class="diagram-node-filled"></circle>
+          <circle cx="400" cy="170" r="14" class="diagram-node-filled"></circle>
+          <circle cx="700" cy="170" r="14" class="diagram-node"></circle>
+          <line x1="200" y1="170" x2="400" y2="170" class="diagram-line"></line>
+          <line x1="400" y1="170" x2="700" y2="170" class="diagram-line" stroke-dasharray="8 8"></line>
+          <text x="150" y="200" class="diagram-subtle">load[t] < m</text>
+          <text x="356" y="200" class="diagram-subtle">m <= load[t] <= M</text>
+          <text x="650" y="200" class="diagram-subtle">load[t] > M</text>
+        </svg>
+      </div>
+      <div class="formula">maximize tổng sản lượng được thu hoạch</div>
+      <div class="footer"><span>Slide 2</span><span>Problem statement</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Mathematical Model</div>
+      <h2>Mô hình hóa chung</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Biến quyết định</h3>
+          <p>`x_i = t`: ruộng `i` được thu hoạch ngày `t`.</p>
+          <p>`x_i = -1`: ruộng `i` không được chọn.</p>
+        </div>
+        <div class="card">
+          <h3>Tải mỗi ngày</h3>
+          <p>`load[t] = sum d_i` với mọi ruộng được gán vào ngày `t`.</p>
+        </div>
+      </div>
+      <div class="formula">x_i = -1 hoặc s_i <= x_i <= e_i
+load[t] = 0 hoặc m <= load[t] <= M</div>
+      <p>Mục tiêu là tối đa hóa `sum d_i` của các ruộng có `x_i > 0`.</p>
+      <div class="footer"><span>Slide 3</span><span>Common model</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Challenge</div>
+      <h2>Vì sao bài toán khó?</h2>
+      <ul>
+        <li>Đây là bài toán gán có cửa sổ thời gian, capacity và điều kiện kích hoạt ngày.</li>
+        <li>Ràng buộc `load[t] = 0 hoặc load[t] >= m` tạo tính chất rời rạc.</li>
+        <li>`N` và số ngày có thể tới `10000`, nên mô hình đầy đủ có thể rất lớn.</li>
+        <li>Một quyết định gán sớm có thể làm ngày khác không đạt `m`, gây mất nhiều ruộng.</li>
+      </ul>
+      <p class="note">Vì vậy project triển khai nhiều hướng: heuristic nhanh, local improvement, DP cục bộ và mô hình OR-Tools.</p>
+      <div class="footer"><span>Slide 4</span><span>Model difficulty</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Greedy</div>
+      <h2>Greedy: Ý tưởng chính</h2>
+      <ul>
+        <li>Xử lý ruộng khó xếp trước: cửa sổ ngắn, deadline sớm.</li>
+        <li>Khi gán ruộng, chọn ngày khả thi đang có tải lớn nhất.</li>
+        <li>Mục tiêu cục bộ: gom tải vào các ngày đã có sản phẩm để dễ đạt ngưỡng `m`.</li>
+        <li>Sau gán ban đầu, repair các ngày yếu và fill thêm capacity còn trống.</li>
+      </ul>
+      <div class="illustration" aria-label="Greedy flow illustration">
+        <svg viewBox="0 0 920 220" role="img">
+          <defs>
+            <marker id="arrow-head-greedy" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L10,5 L0,10 z" fill="#1f7a6d"></path>
+            </marker>
+          </defs>
+          <text x="20" y="28" class="diagram-label">Luồng greedy: sắp xếp -> chọn ngày -> cập nhật tải</text>
+          <rect x="40" y="72" width="200" height="70" class="diagram-box"></rect>
+          <rect x="290" y="72" width="200" height="70" class="diagram-box-warm"></rect>
+          <rect x="540" y="72" width="200" height="70" class="diagram-box"></rect>
+          <rect x="790" y="72" width="90" height="70" class="diagram-box"></rect>
+          <text x="83" y="103" class="diagram-label">Sort fields</text>
+          <text x="320" y="103" class="diagram-label">Find best day</text>
+          <text x="578" y="103" class="diagram-label">Update load[t]</text>
+          <text x="804" y="103" class="diagram-label">Repair</text>
+          <line x1="240" y1="107" x2="286" y2="107" class="diagram-line" marker-end="url(#arrow-head-greedy)"></line>
+          <line x1="490" y1="107" x2="536" y2="107" class="diagram-line" marker-end="url(#arrow-head-greedy)"></line>
+          <line x1="740" y1="107" x2="786" y2="107" class="diagram-line" marker-end="url(#arrow-head-greedy)"></line>
+          <line x1="60" y1="168" x2="860" y2="168" class="diagram-soft-line"></line>
+          <circle cx="120" cy="168" r="10" class="diagram-node-filled"></circle>
+          <circle cx="260" cy="168" r="10" class="diagram-node"></circle>
+          <circle cx="400" cy="168" r="10" class="diagram-node-filled"></circle>
+          <circle cx="540" cy="168" r="10" class="diagram-node"></circle>
+          <circle cx="680" cy="168" r="10" class="diagram-node-filled"></circle>
+          <circle cx="820" cy="168" r="10" class="diagram-node"></circle>
+          <line x1="120" y1="168" x2="260" y2="168" class="diagram-line"></line>
+          <line x1="260" y1="168" x2="400" y2="168" class="diagram-line"></line>
+          <line x1="400" y1="168" x2="540" y2="168" class="diagram-line"></line>
+          <line x1="540" y1="168" x2="680" y2="168" class="diagram-line"></line>
+          <line x1="680" y1="168" x2="820" y2="168" class="diagram-line"></line>
+          <text x="92" y="196" class="diagram-subtle">hard</text>
+          <text x="230" y="196" class="diagram-subtle">easy</text>
+          <text x="374" y="196" class="diagram-subtle">choose</text>
+          <text x="656" y="196" class="diagram-subtle">repair loop</text>
+        </svg>
+      </div>
+      <div class="formula">sort by (e_i - s_i, e_i, -d_i)
+choose t maximizing load[t], subject to load[t] + d_i <= M</div>
+      <div class="footer"><span>Slide 5</span><span>Greedy idea</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Greedy</div>
+      <h2>Greedy: Pseudocode</h2>
+      <pre><code>GREEDY-SOLVE(fields, m, M):
+    assign[i] <- -1
+    load[t] <- 0
+
+    sort fields by shorter window, earlier deadline, larger amount
+
+    for each field i:
+        best_day <- -1
+        for t from s_i to e_i:
+            if load[t] + d_i <= M and load[t] is largest:
+                best_day <- t
+
+        if best_day exists:
+            assign[i] <- best_day
+            load[best_day] += d_i
+
+    repeat:
+        REPAIR-WEAK-DAYS()
+        FILL-SOLUTION()
+
+    return assign</code></pre>
+      <div class="footer"><span>Slide 6</span><span>Greedy pseudocode</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Greedy Repair</div>
+      <h2>Repair và Fill</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Repair weak days</h3>
+          <ul>
+            <li>Tìm ngày có `0 < load[t] < m`.</li>
+            <li>Thử chuyển ruộng sang ngày hợp lệ khác.</li>
+            <li>Nếu không chuyển được, bỏ ruộng khỏi nghiệm.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Fill solution</h3>
+          <ul>
+            <li>Thêm ruộng chưa chọn vào ngày đang hoạt động.</li>
+            <li>Nếu có thể gom đủ `m`, mở thêm ngày mới.</li>
+            <li>Luôn giữ `load[t] <= M`.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Hai bước này biến nghiệm greedy thô thành nghiệm hợp lệ và thường cải thiện objective.</p>
+      <div class="footer"><span>Slide 7</span><span>Feasibility repair</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Local Search</div>
+      <h2>Local Search: Cải thiện từ nghiệm greedy</h2>
+      <ul>
+        <li>Khởi tạo bằng nghiệm greedy hợp lệ.</li>
+        <li>Lân cận dùng trong code: thêm một ruộng chưa chọn vào ngày khả thi tốt nhất.</li>
+        <li>Ưu tiên xét ruộng có sản lượng lớn trước.</li>
+        <li>Sau mỗi vòng thêm ruộng, chạy repair và fill để giữ nghiệm hợp lệ.</li>
+      </ul>
+      <pre><code>LOCAL-SEARCH:
+    assign, load <- GREEDY-CONSTRUCTION()
+
+    while improved and round limit not reached:
+        for each unassigned field i by decreasing d_i:
+            t <- best feasible day for i
+            if t exists and day can remain active:
+                assign i to t
+                improved <- true
+
+        REPAIR-WEAK-DAYS()
+        FILL-SOLUTION()</code></pre>
+      <div class="illustration" aria-label="Local search illustration">
+        <svg viewBox="0 0 920 220" role="img">
+          <defs>
+            <marker id="arrow-head-local" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L10,5 L0,10 z" fill="#1f7a6d"></path>
+            </marker>
+          </defs>
+          <text x="20" y="28" class="diagram-label">Local search: hoán đổi cục bộ để tăng tổng sản lượng</text>
+          <rect x="50" y="66" width="260" height="88" class="diagram-box"></rect>
+          <rect x="330" y="66" width="260" height="88" class="diagram-box-warm"></rect>
+          <rect x="610" y="66" width="260" height="88" class="diagram-box"></rect>
+          <text x="90" y="97" class="diagram-label">Current solution</text>
+          <text x="118" y="124" class="diagram-subtle">assign + load</text>
+          <text x="375" y="97" class="diagram-label">Neighborhood move</text>
+          <text x="387" y="124" class="diagram-subtle">add / shift one field</text>
+          <text x="706" y="97" class="diagram-label">Improved solution</text>
+          <text x="727" y="124" class="diagram-subtle">better objective</text>
+          <line x1="310" y1="110" x2="326" y2="110" class="diagram-line" marker-end="url(#arrow-head-local)"></line>
+          <line x1="590" y1="110" x2="606" y2="110" class="diagram-line" marker-end="url(#arrow-head-local)"></line>
+          <line x1="92" y1="178" x2="830" y2="178" class="diagram-soft-line"></line>
+          <circle cx="150" cy="178" r="12" class="diagram-node-filled"></circle>
+          <circle cx="290" cy="178" r="12" class="diagram-node"></circle>
+          <circle cx="430" cy="178" r="12" class="diagram-node-filled"></circle>
+          <circle cx="570" cy="178" r="12" class="diagram-node"></circle>
+          <circle cx="710" cy="178" r="12" class="diagram-node-filled"></circle>
+          <line x1="150" y1="178" x2="290" y2="178" class="diagram-line"></line>
+          <line x1="290" y1="178" x2="430" y2="178" class="diagram-line"></line>
+          <line x1="430" y1="178" x2="570" y2="178" class="diagram-line"></line>
+          <line x1="570" y1="178" x2="710" y2="178" class="diagram-line"></line>
+          <text x="126" y="204" class="diagram-subtle">try move</text>
+          <text x="392" y="204" class="diagram-subtle">repair</text>
+          <text x="668" y="204" class="diagram-subtle">accept if better</text>
+        </svg>
+      </div>
+      <div class="footer"><span>Slide 8</span><span>Local search</span></div>
+    </section>
+
+
+
+    <section class="slide">
+      <div class="kicker">Dynamic Programming</div>
+      <h2>DP: Chi tiết Knapsack per-day (Thuật toán)</h2>
+      <p>Ý tưởng: với mỗi ngày t, giải một bài toán 0/1‑knapsack nhỏ để lấp phần còn lại của công suất `remaining = M - load[t]` bằng các ruộng chưa được gán mà có s_i <= t <= e_i.</p>
+      <h3>Thuật toán cơ bản</h3>
+      <ol>
+        <li>Chọn tối đa `C` candidate (theo `d_i` lớn nhất) để giới hạn kích thước bài toán.</li>
+        <li>Dùng DP mảng `dp[w] = best value achievable with weight <= w` (0..remaining) hoặc bitset để kiểm tra khả năng lấp.</li>
+        <li>Backtrack từ `dp` để lấy tập ruộng chọn.</li>
+        <li>Áp dụng: thêm các ruộng chọn vào ngày t nếu chưa bị gán; cập nhật `load[t]` và `assign`.</li>
+        <li>Chạy `REPAIR-WEAK-DAYS()` sau vòng để loại ngày có `0 < load < m` (bỏ hết ruộng đó và trả ruộng về pool).</li>
+      </ol>
+      <div class="footer"><span>Slide 9</span><span>DP algorithm</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Dynamic Programming</div>
+      <h2>DP: Chi tiết Knapsack per-day (Phân tích)</h2>
+      <h3>Chi phí tính toán</h3>
+      <p>Nếu giới hạn `C` candidates và `R = remaining`, knapsack DP chạy O(C * R) time và O(R) memory (hoặc O(C*R) để backtrack). Thực nghiệm cho thấy `C` nhỏ (20-100) đủ cho hiệu quả.</p>
+      <h3>Ghi chú thực thi</h3>
+      <ul>
+        <li>Nếu `d_i` lớn hơn `remaining`, bỏ qua candidate đó.</li>
+        <li>Ưu tiên chọn ruộng có `d_i` lớn để tăng tổng sản lượng.</li>
+        <li>Sau một số vòng không cải thiện, dừng sớm để tiết kiệm thời gian.</li>
+        <li>Repair và fill-solution giúp xử lý các ngày yếu (underfilled).</li>
+      </ul>
+      <p class="note">Nhờ heuristic C-limit và greedy construction, thuật toán DP chạy nhanh trên các test lớn với chất lượng nghiệm cao.</p>
+      <div class="footer"><span>Slide 10</span><span>DP complexity</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Dynamic Programming</div>
+      <h2>DP: Pseudocode</h2>
+      <pre><code>DP-SOLVE(fields, m, M):
+    assign, load <- GREEDY-CONSTRUCTION()
+
+    for each day t:
+        remaining <- M - load[t]
+        candidates <- unassigned fields available on t
+        keep the best C candidates
+
+        chosen <- KNAPSACK-FILL(candidates, remaining)
+
+        for each field i in chosen:
+            if i still fits:
+                assign i to t
+                load[t] += d_i
+
+    REPAIR-WEAK-DAYS()
+    FILL-SOLUTION()
+    REPAIR-WEAK-DAYS()
+    return assign</code></pre>
+      <div class="footer"><span>Slide 11</span><span>DP pseudocode</span></div>
+    </section>
+
+
+    <section class="slide">
+      <div class="kicker">MIP</div>
+      <h2>MIP: Mô hình nguyên trực tiếp</h2>
+      <div class="formula">x[i,t] in {0,1}
+y[t] in {0,1}</div>
+      <ul>
+        <li>MIP dùng cùng dạng ràng buộc với LP, nhưng biến là nhị phân.</li>
+        <li>`x[i,t] = 1` nghĩa là ruộng `i` thực sự được gán vào ngày `t`.</li>
+        <li>`y[t] = 1` nghĩa là ngày `t` được mở.</li>
+        <li>Giải bằng OR-Tools `linear_solver` với backend `SCIP`.</li>
+      </ul>
+      <p class="note">Khác với LP, nghiệm MIP trả về là nghiệm nguyên nên không cần rounding.</p>
+      <div class="footer"><span>Slide 12</span><span>MIP model</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">CP-SAT (Phần 1)</div>
+      <h2>CP: Mô hình chính xác</h2>
+
+      <ul>
+        <li>Mô hình CP (đầy đủ): tạo biến nhị phân `x[i,t]` cho mọi cặp `i` và `t` trong `[s_i,e_i]`.</li>
+        <li>Ràng buộc mỗi ruộng tối đa một ngày: `sum_t x[i,t] <= 1`.</li>
+        <li>Tải mỗi ngày: `load[t] = sum d_i * x[i,t]` và biến ngày `y[t]` bật/tắt.</li>
+        <li>Big‑M: `m*y[t] <= load[t] <= M*y[t]` đảm bảo ngày mở khi đủ tải.</li>
+        <li>Mục tiêu: `Maximize(sum d_i * x[i,t])` (tổng sản lượng thu hoạch).</li>
+      </ul>
+      <pre class="code"><code># dense CP model (exact)
+for i in range(1, N+1):
+    for t in range(s[i], e[i]+1):
+        x[i,t] = NewBoolVar(f"x_{i}_{t}")
+        by_day[t].append((d[i], x[i,t]))
+
+for i in range(1, N+1):
+    model.Add(sum(x[i,t] for t in range(s[i], e[i]+1)) <= 1)
+
+for t in days:
+    load = sum(d * x for d,x in by_day[t])
+    model.Add(load <= M * y[t])
+    model.Add(load >= m * y[t])
+
+model.Maximize(sum(d_i * x[i,t] for (i,t), x in x.items()))</code></pre>
+
+      <div class="formula">Dense CP model (exact):
+    x[i,t] in {0,1} for s_i <= t <= e_i
+    load[t] = sum d_i * x[i,t]
+    m*y[t] <= load[t] <= M*y[t]
+    Maximize sum d_i * x[i,t]</div>
+      <p class="note">Mô hình chính xác nhưng có thể quá lớn (O(N*T) biến) trên test lớn. Giải bằng OR-Tools CP-SAT solver.</p>
+      <div class="footer"><span>Slide 13</span><span>CP model</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">CP-SAT (Phần 2)</div>
+      <h2>CP: Data structures</h2>
+      <div class="illustration" aria-label="CP-SAT data flow from sol2.py">
+        <svg viewBox="0 0 920 280" role="img">
+          <defs>
+            <marker id="arrow-head-sol2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+              <path d="M0,0 L10,5 L0,10 z" fill="#1f7a6d"></path>
+            </marker>
+          </defs>
+          <!-- Input -->
+          <rect x="30" y="20" width="180" height="60" rx="6" fill="#f3faf8" stroke="#1f7a6d" stroke-width="2"></rect>
+          <text x="50" y="45" class="diagram-label" font-weight="700">Input</text>
+          <text x="50" y="62" class="diagram-subtle">N, m, M</text>
+          <text x="50" y="75" class="diagram-subtle">fields: d[i], s[i], e[i]</text>
+          
+          <!-- Arrow -->
+          <line x1="210" y1="50" x2="280" y2="50" class="diagram-line" marker-end="url(#arrow-head-sol2)"></line>
+          
+          <!-- candidate_days() -->
+          <rect x="280" y="20" width="160" height="60" rx="6" fill="#fff7f3" stroke="#b45309" stroke-width="2"></rect>
+          <text x="300" y="50" class="diagram-label" font-weight="700">candidate_days()</text>
+          <text x="300" y="67" class="diagram-subtle">filter: [s, e, mid, ...]</text>
+          
+          <!-- Arrow -->
+          <line x1="440" y1="50" x2="510" y2="50" class="diagram-line" marker-end="url(#arrow-head-sol2)"></line>
+          
+          <!-- x variables sparse dict -->
+          <rect x="510" y="20" width="180" height="60" rx="6" fill="#eef6fb" stroke="#0b5ea8" stroke-width="2"></rect>
+          <text x="530" y="45" class="diagram-label" font-weight="700">x dict (sparse)</text>
+          <text x="530" y="62" class="diagram-subtle">x[i+1, day] = BoolVar</text>
+          <text x="530" y="75" class="diagram-subtle">(only candidate days)</text>
+          
+          <!-- Below: by_day grouping -->
+          <line x1="600" y1="80" x2="600" y2="110" class="diagram-soft-line"></line>
+          
+          <!-- by_day -->
+          <rect x="30" y="110" width="840" height="60" rx="6" fill="rgba(31,122,109,.08)" stroke="rgba(31,122,109,.3)"></rect>
+          <text x="50" y="135" class="diagram-label" font-weight="700">by_day[day] = [(d₁, x₁), (d₂, x₂), ...]</text>
+          <text x="50" y="155" class="diagram-subtle">Group x variables by day; calculate load[day] = sum(d*x)</text>
+          
+          <!-- Constraints box -->
+          <line x1="600" y1="170" x2="600" y2="190" class="diagram-soft-line"></line>
+          
+          <!-- Constraints -->
+          <rect x="30" y="190" width="840" height="70" rx="6" fill="rgba(180,83,9,.08)" stroke="rgba(180,83,9,.3)"></rect>
+          <text x="50" y="215" class="diagram-label" font-weight="700">Constraints &amp; Objective</text>
+          <text x="50" y="233" class="diagram-subtle">• sum(x[i,day]) ≤ 1 per field  • y[day] = BoolVar (day active)</text>
+          <text x="50" y="248" class="diagram-subtle">• Big-M: m*y[day] ≤ load[day] ≤ M*y[day]  • Maximize: sum(amount[i] * x[i,day])</text>
+        </svg>
+      </div>
+      <ul>
+        <li><strong>Sparse model:</strong> Chỉ tạo x[i,day] cho candidate days (không O(N*T) đầy đủ).</li>
+        <li><strong>by_day grouping:</strong> Tổng hợp tất cả x variables của ngày t để tính load[t].</li>
+        <li><strong>y[day] activation:</strong> Biến nhị phân bật/tắt ngày; Big-M liên kết load và y.</li>
+        <li><strong>Mục tiêu:</strong> Maximize tổng sản lượng các ruộng được chọn.</li>
+      </ul>
+      <div class="footer"><span>Slide 14</span><span>CP details</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Implementation</div>
+      <h2>Tối ưu hóa: Heuristics trên các solvers</h2>
+      <h3>Xử lý quy mô lớn</h3>
+      <ul>
+        <li><strong>Greedy/DP/LS:</strong> Heuristic nhanh (O(N log N) đến O(N²)), chạy được N=10000 trong seconds.</li>
+        <li><strong>MIP/CP:</strong> Exact model nhưng lớn (O(N*T) biến); đặt time limit để lấy feasible solution.</li>
+        <li><strong>Solver params:</strong> num_search_workers, max_time_in_seconds, log_search_progress để kiểm soát.</li>
+      </ul>
+      <h3>Strategi thực thi</h3>
+      <ul>
+        <li>Test nhỏ: dùng exact models (MIP/CP).</li>
+        <li>Test lớn: ưu tiên heuristics (greedy, DP, local search).</li>
+        <li>Hybrid: chạy greedy trước, sau đó improve bằng local search hoặc DP.</li>
+      </ul>
+      <div class="footer"><span>Slide 15</span><span>Scalability</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Evaluation</div>
+      <h2>Kết quả trên 5 tests</h2>
+      <table>
+        <thead>
+          <tr><th>Method</th><th>test1</th><th>test2</th><th>test3</th><th>test4</th><th>test5</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>greedy</td><td>1020</td><td>128868</td><td>49589</td><td>255386</td><td>58</td></tr>
+          <tr><td>local_search</td><td>1020</td><td>128868</td><td>49589</td><td>255386</td><td>58</td></tr>
+          <tr><td>MIP</td><td>1020</td><td>127851</td><td>49589</td><td>252770</td><td>58</td></tr>
+          <tr><td>CP (exact)</td><td>1020</td><td>128868</td><td>49589</td><td>255386</td><td>58</td></tr>
+          <tr><td>DP</td><td>1020</td><td>128868</td><td>49589</td><td>255386</td><td>58</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Tất cả nghiệm đều hợp lệ theo evaluator. Giá trị trong bảng là tổng sản lượng thu hoạch.</p>
+      <div class="footer"><span>Slide 16</span><span>Results</span></div>
+    </section>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    let index = 0;
+
+    function show(next) {
+      index = Math.max(0, Math.min(slides.length - 1, next));
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      history.replaceState(null, '', `#${index + 1}`);
+    }
+
+    function fromHash() {
+      const n = parseInt(location.hash.replace('#', ''), 10);
+      if (!Number.isNaN(n)) show(n - 1);
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (['ArrowRight', 'PageDown', ' '].includes(event.key)) {
+        event.preventDefault();
+        show(index + 1);
+      } else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(event.key)) {
+        event.preventDefault();
+        show(index - 1);
+      } else if (event.key === 'Home') {
+        show(0);
+      } else if (event.key === 'End') {
+        show(slides.length - 1);
+      }
+    });
+
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+  </script>
+</body>
+</html>

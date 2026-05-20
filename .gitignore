@@ -1,0 +1,11 @@
+.plan_optim/
+or-tools/
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+*.zip
+*.log
+
+/greedy

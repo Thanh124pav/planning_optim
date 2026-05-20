@@ -1,0 +1,3418 @@
+[
+  {
+    "name": "greedy-rounds-1",
+    "algorithm": "greedy",
+    "tuning": "repair/fill rounds",
+    "script": "greedy/solution.py",
+    "env": {
+      "GREEDY_REPAIR_FILL_ROUNDS": "1",
+      "GREEDY_ORDER_MODE": "window_deadline_amount"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.14312957400011328,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "GREEDY_REPAIR_FILL_ROUNDS": 1,
+      "GREEDY_ORDER_MODE": "window_deadline_amount"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.020544136999887996,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.035545491999982914,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.01762616800010619,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.05449641500013058,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.014917362000005596,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "greedy-rounds-2",
+    "algorithm": "greedy",
+    "tuning": "repair/fill rounds",
+    "script": "greedy/solution.py",
+    "env": {
+      "GREEDY_REPAIR_FILL_ROUNDS": "2",
+      "GREEDY_ORDER_MODE": "window_deadline_amount"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.14526352099983342,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "GREEDY_REPAIR_FILL_ROUNDS": 2,
+      "GREEDY_ORDER_MODE": "window_deadline_amount"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.015983839000000444,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.03798172100005104,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.018468735999931596,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.05642380599988428,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.01640541899996606,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "greedy-rounds-4",
+    "algorithm": "greedy",
+    "tuning": "repair/fill rounds",
+    "script": "greedy/solution.py",
+    "env": {
+      "GREEDY_REPAIR_FILL_ROUNDS": "4",
+      "GREEDY_ORDER_MODE": "window_deadline_amount"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.15812110400020174,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "GREEDY_REPAIR_FILL_ROUNDS": 4,
+      "GREEDY_ORDER_MODE": "window_deadline_amount"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.01592166399996131,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.03874091500006216,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.018896835000077772,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.06975908499998695,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.014802605000113545,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "greedy-order-window_deadline_amount",
+    "algorithm": "greedy",
+    "tuning": "ordering rule",
+    "script": "greedy/solution.py",
+    "env": {
+      "GREEDY_REPAIR_FILL_ROUNDS": "2",
+      "GREEDY_ORDER_MODE": "window_deadline_amount"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.14369774099986898,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "GREEDY_REPAIR_FILL_ROUNDS": 2,
+      "GREEDY_ORDER_MODE": "window_deadline_amount"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.014828051999984382,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.03693684099994243,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.01830966400007128,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.05853238500003499,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.015090798999835897,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "greedy-order-amount_window",
+    "algorithm": "greedy",
+    "tuning": "ordering rule",
+    "script": "greedy/solution.py",
+    "env": {
+      "GREEDY_REPAIR_FILL_ROUNDS": "2",
+      "GREEDY_ORDER_MODE": "amount_window"
+    },
+    "total_score": 100,
+    "total_runtime_seconds": 280.01760231699996,
+    "correct_tests": 1,
+    "hyperparameters": {
+      "GREEDY_REPAIR_FILL_ROUNDS": 2,
+      "GREEDY_ORDER_MODE": "amount_window"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 0,
+        "runtime_seconds": 70.0,
+        "status": "timeout",
+        "valid": false,
+        "message": "timeout after 70.000s",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 0,
+        "runtime_seconds": 70.0,
+        "status": "timeout",
+        "valid": false,
+        "message": "timeout after 70.000s",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 0,
+        "runtime_seconds": 70.0,
+        "status": "timeout",
+        "valid": false,
+        "message": "timeout after 70.000s",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 70.0,
+        "status": "timeout",
+        "valid": false,
+        "message": "timeout after 70.000s",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.017602316999955292,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "greedy-order-deadline_window",
+    "algorithm": "greedy",
+    "tuning": "ordering rule",
+    "script": "greedy/solution.py",
+    "env": {
+      "GREEDY_REPAIR_FILL_ROUNDS": "2",
+      "GREEDY_ORDER_MODE": "deadline_window"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.1573613129999103,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "GREEDY_REPAIR_FILL_ROUNDS": 2,
+      "GREEDY_ORDER_MODE": "deadline_window"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.016981696999891938,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.03919607499983613,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.01931063000006361,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.06605439400004798,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.015818517000070642,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-original-r2",
+    "algorithm": "local_search",
+    "tuning": "insert-only baseline",
+    "script": "local_search/solution.py",
+    "env": {
+      "LS_ORIG_INITIAL_REPAIR_FILL_ROUNDS": "2",
+      "LS_ORIG_MAX_ROUNDS": "2"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.16820950200008156,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_ORIG_INITIAL_REPAIR_FILL_ROUNDS": 2,
+      "LS_ORIG_MAX_ROUNDS": 2
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.017233112999974765,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.04196842100009235,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.02071255900000324,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.07241158700003325,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.015883821999977954,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-original-r5",
+    "algorithm": "local_search",
+    "tuning": "insert-only baseline",
+    "script": "local_search/solution.py",
+    "env": {
+      "LS_ORIG_INITIAL_REPAIR_FILL_ROUNDS": "2",
+      "LS_ORIG_MAX_ROUNDS": "5"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.17063812099991083,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_ORIG_INITIAL_REPAIR_FILL_ROUNDS": 2,
+      "LS_ORIG_MAX_ROUNDS": 5
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.0192659869999261,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.04068022000001292,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.020028305999858276,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.07330292100004954,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.01736068700006399,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-original-r8",
+    "algorithm": "local_search",
+    "tuning": "insert-only baseline",
+    "script": "local_search/solution.py",
+    "env": {
+      "LS_ORIG_INITIAL_REPAIR_FILL_ROUNDS": "2",
+      "LS_ORIG_MAX_ROUNDS": "8"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.16718359599985888,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_ORIG_INITIAL_REPAIR_FILL_ROUNDS": 2,
+      "LS_ORIG_MAX_ROUNDS": 8
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.016017527000030896,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.04214716399997087,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.020889871000008498,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.07031233399993653,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.01781669999991209,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-1",
+    "algorithm": "local_search_variants",
+    "tuning": "insert",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "insert",
+      "LS_MAX_ROUNDS": "3",
+      "LS_TOP_UNASSIGNED": "300"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.1656436300002042,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "insert",
+      "LS_MAX_ROUNDS": 3,
+      "LS_TOP_UNASSIGNED": 300
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.018194229000073392,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.04102711700011241,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.022204864000059388,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.06577054900003532,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.018446870999923703,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-2",
+    "algorithm": "local_search_variants",
+    "tuning": "insert",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "insert",
+      "LS_MAX_ROUNDS": "6",
+      "LS_TOP_UNASSIGNED": "800"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.16750201799982278,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "insert",
+      "LS_MAX_ROUNDS": 6,
+      "LS_TOP_UNASSIGNED": 800
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.018026673999884224,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.03975061599999208,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.022060882000005222,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.06878845999995065,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.018875385999990613,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-3",
+    "algorithm": "local_search_variants",
+    "tuning": "relocate",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "relocate",
+      "LS_MAX_ROUNDS": "3",
+      "LS_TOP_ASSIGNED": "300"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.1939396709999528,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "relocate",
+      "LS_MAX_ROUNDS": 3,
+      "LS_TOP_ASSIGNED": 300
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.018555726999920807,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.0481823960001293,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.024468132000038167,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.0848960249998072,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.017837391000057323,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-4",
+    "algorithm": "local_search_variants",
+    "tuning": "relocate",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "relocate",
+      "LS_MAX_ROUNDS": "6",
+      "LS_TOP_ASSIGNED": "800"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.21348353999997016,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "relocate",
+      "LS_MAX_ROUNDS": 6,
+      "LS_TOP_ASSIGNED": 800
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.018197091000047294,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.04741955600002257,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.02245316499988803,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.10529786699999022,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.02011586100002205,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-5",
+    "algorithm": "local_search_variants",
+    "tuning": "swap",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "swap",
+      "LS_MAX_ROUNDS": "2",
+      "LS_TOP_ASSIGNED": "200"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.20809516599956623,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "swap",
+      "LS_MAX_ROUNDS": 2,
+      "LS_TOP_ASSIGNED": 200
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.019376454999928683,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.04850050099980763,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.025131131999842182,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.09563547299990205,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.019451605000085692,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-6",
+    "algorithm": "local_search_variants",
+    "tuning": "swap",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "swap",
+      "LS_MAX_ROUNDS": "3",
+      "LS_TOP_ASSIGNED": "400"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.2216570490002141,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "swap",
+      "LS_MAX_ROUNDS": 3,
+      "LS_TOP_ASSIGNED": 400
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.019791490999978123,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.05488561800007119,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.024710942999945473,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.10315570400007346,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.01911329300014586,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-7",
+    "algorithm": "local_search_variants",
+    "tuning": "replace",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "replace",
+      "LS_MAX_ROUNDS": "3",
+      "LS_TOP_UNASSIGNED": "300",
+      "LS_TOP_ASSIGNED": "300"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.17084856099995704,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "replace",
+      "LS_MAX_ROUNDS": 3,
+      "LS_TOP_UNASSIGNED": 300,
+      "LS_TOP_ASSIGNED": 300
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.019921374999967156,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.040691814999945564,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.02186913400009871,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.0692212080000445,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.019145028999901115,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-8",
+    "algorithm": "local_search_variants",
+    "tuning": "replace",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "replace",
+      "LS_MAX_ROUNDS": "6",
+      "LS_TOP_UNASSIGNED": "800",
+      "LS_TOP_ASSIGNED": "800"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.1693516999998792,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "replace",
+      "LS_MAX_ROUNDS": 6,
+      "LS_TOP_UNASSIGNED": 800,
+      "LS_TOP_ASSIGNED": 800
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.019009475000075327,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.0398734919999697,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.02228155800003151,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.06869389700000283,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.01949327799979983,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-9",
+    "algorithm": "local_search_variants",
+    "tuning": "group",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "group",
+      "LS_MAX_ROUNDS": "2",
+      "LS_GROUP_DAYS": "60",
+      "LS_GROUP_SIZE": "2"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.18991667000000234,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "group",
+      "LS_MAX_ROUNDS": 2,
+      "LS_GROUP_DAYS": 60,
+      "LS_GROUP_SIZE": 2
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.019685933999880945,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.04711012600000686,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.022526217000176985,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.08221026399996845,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.018384128999969107,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-10",
+    "algorithm": "local_search_variants",
+    "tuning": "group",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "group",
+      "LS_MAX_ROUNDS": "3",
+      "LS_GROUP_DAYS": "120",
+      "LS_GROUP_SIZE": "4"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.1959283400001368,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "group",
+      "LS_MAX_ROUNDS": 3,
+      "LS_GROUP_DAYS": 120,
+      "LS_GROUP_SIZE": 4
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.019159899000214864,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.04920066499994391,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.023387441000068065,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.08701053400000092,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.017169800999909057,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-11",
+    "algorithm": "local_search_variants",
+    "tuning": "all moves",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "insert,relocate,swap,replace,group",
+      "LS_MAX_ROUNDS": "3",
+      "LS_TOP_UNASSIGNED": "500",
+      "LS_TOP_ASSIGNED": "300",
+      "LS_GROUP_DAYS": "80",
+      "LS_GROUP_SIZE": "3"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.312456468000164,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "insert,relocate,swap,replace,group",
+      "LS_MAX_ROUNDS": 3,
+      "LS_TOP_UNASSIGNED": 500,
+      "LS_TOP_ASSIGNED": 300,
+      "LS_GROUP_DAYS": 80,
+      "LS_GROUP_SIZE": 3
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.019518697999956203,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.08659898200016869,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.029334739999967496,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.15751166900008684,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.019492378999984794,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "local-search-variant-12",
+    "algorithm": "local_search_variants",
+    "tuning": "all moves",
+    "script": "local_search_variants/solution.py",
+    "env": {
+      "LS_MOVES": "insert,relocate,swap,replace,group",
+      "LS_MAX_ROUNDS": "5",
+      "LS_TOP_UNASSIGNED": "800",
+      "LS_TOP_ASSIGNED": "500",
+      "LS_GROUP_DAYS": "120",
+      "LS_GROUP_SIZE": "4"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.4174059589997796,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "LS_MOVES": "insert,relocate,swap,replace,group",
+      "LS_MAX_ROUNDS": 5,
+      "LS_TOP_UNASSIGNED": 800,
+      "LS_TOP_ASSIGNED": 500,
+      "LS_GROUP_DAYS": 120,
+      "LS_GROUP_SIZE": 4
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.0192527889998928,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.11843169000007947,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.033045403999949485,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.2266421229999196,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.020033952999938265,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "dp-local-c80",
+    "algorithm": "DP",
+    "tuning": "greedy + local knapsack",
+    "script": "DP/solution.py",
+    "env": {
+      "DP_INITIAL_REPAIR_FILL_ROUNDS": "2",
+      "DP_CANDIDATE_LIMIT": "80"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.24959548900005757,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "DP_INITIAL_REPAIR_FILL_ROUNDS": 2,
+      "DP_CANDIDATE_LIMIT": 80
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.018218208000007508,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.06968265599994083,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.022549410999999964,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.12217226699999628,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.01697294700011298,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "dp-local-c160",
+    "algorithm": "DP",
+    "tuning": "greedy + local knapsack",
+    "script": "DP/solution.py",
+    "env": {
+      "DP_INITIAL_REPAIR_FILL_ROUNDS": "2",
+      "DP_CANDIDATE_LIMIT": "160"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.2462099400004263,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "DP_INITIAL_REPAIR_FILL_ROUNDS": 2,
+      "DP_CANDIDATE_LIMIT": 160
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.018236260000094262,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.06719155500013585,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.023705493000079514,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.12060724100001607,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.016469391000100586,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "dp-local-c320",
+    "algorithm": "DP",
+    "tuning": "greedy + local knapsack",
+    "script": "DP/solution.py",
+    "env": {
+      "DP_INITIAL_REPAIR_FILL_ROUNDS": "2",
+      "DP_CANDIDATE_LIMIT": "320"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.23845104199995149,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "DP_INITIAL_REPAIR_FILL_ROUNDS": 2,
+      "DP_CANDIDATE_LIMIT": 320
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.01759780099996533,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.06498772200006897,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.022990087999914977,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.11606036900002437,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.016815061999977843,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "dp-traditional-c80-p1",
+    "algorithm": "Dynamic Programming",
+    "tuning": "traditional day-by-day knapsack",
+    "script": "DP_traditional/solution.py",
+    "env": {
+      "DP_TRAD_MAX_CANDIDATES": "80",
+      "DP_TRAD_PASSES": "1"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 1.8894448619998911,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "DP_TRAD_MAX_CANDIDATES": 80,
+      "DP_TRAD_PASSES": 1,
+      "DP_STATE": "daily capacity 0..M"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.016847122999934072,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.38225397300016084,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.24279307300002984,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 1.230455394999808,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.017095297999958348,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "dp-traditional-c80-p2",
+    "algorithm": "Dynamic Programming",
+    "tuning": "traditional day-by-day knapsack",
+    "script": "DP_traditional/solution.py",
+    "env": {
+      "DP_TRAD_MAX_CANDIDATES": "80",
+      "DP_TRAD_PASSES": "2"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 1.9470576189999065,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "DP_TRAD_MAX_CANDIDATES": 80,
+      "DP_TRAD_PASSES": 2,
+      "DP_STATE": "daily capacity 0..M"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.016785297000069477,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.3723568709999654,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.2635547620000125,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 1.2760248309998588,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.01833585800000037,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "dp-traditional-c160-p1",
+    "algorithm": "Dynamic Programming",
+    "tuning": "traditional day-by-day knapsack",
+    "script": "DP_traditional/solution.py",
+    "env": {
+      "DP_TRAD_MAX_CANDIDATES": "160",
+      "DP_TRAD_PASSES": "1"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 2.1424085129997366,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "DP_TRAD_MAX_CANDIDATES": 160,
+      "DP_TRAD_PASSES": 1,
+      "DP_STATE": "daily capacity 0..M"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.024477347999891208,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.4148931970000831,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.37799279999990176,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 1.3093245390000448,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.015720628999815744,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "dp-traditional-c160-p2",
+    "algorithm": "Dynamic Programming",
+    "tuning": "traditional day-by-day knapsack",
+    "script": "DP_traditional/solution.py",
+    "env": {
+      "DP_TRAD_MAX_CANDIDATES": "160",
+      "DP_TRAD_PASSES": "2"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 2.1866529689998515,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "DP_TRAD_MAX_CANDIDATES": 160,
+      "DP_TRAD_PASSES": 2,
+      "DP_STATE": "daily capacity 0..M"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.018147068999951443,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.3973993510001037,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.37130004999994526,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 1.3839098449998346,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.015896654000016497,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "dp-traditional-c320-p1",
+    "algorithm": "Dynamic Programming",
+    "tuning": "traditional day-by-day knapsack",
+    "script": "DP_traditional/solution.py",
+    "env": {
+      "DP_TRAD_MAX_CANDIDATES": "320",
+      "DP_TRAD_PASSES": "1"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 2.199718199999552,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "DP_TRAD_MAX_CANDIDATES": 320,
+      "DP_TRAD_PASSES": 1,
+      "DP_STATE": "daily capacity 0..M"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.017449437999857764,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.41978977799999484,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.3834063089998381,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 1.3629088749999028,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.016163799999958428,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "dp-traditional-c320-p2",
+    "algorithm": "Dynamic Programming",
+    "tuning": "traditional day-by-day knapsack",
+    "script": "DP_traditional/solution.py",
+    "env": {
+      "DP_TRAD_MAX_CANDIDATES": "320",
+      "DP_TRAD_PASSES": "2"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 2.1034588870004427,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "DP_TRAD_MAX_CANDIDATES": 320,
+      "DP_TRAD_PASSES": 2,
+      "DP_STATE": "daily capacity 0..M"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.01733959800003504,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.36877678100017874,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.3508133390000694,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 1.3518854520000332,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.014643717000126344,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "mip-time-3000",
+    "algorithm": "MIP",
+    "tuning": "time limit",
+    "script": "MIP/solution.py",
+    "env": {
+      "MIP_SHORT_WINDOW_LIMIT": "12",
+      "MIP_LONG_WINDOW_DIVISOR": "6",
+      "MIP_TIME_LIMIT_MS": "3000",
+      "MIP_INTEGER_THRESHOLD": "0.5"
+    },
+    "total_score": 300,
+    "total_runtime_seconds": 14.6008761220005,
+    "correct_tests": 3,
+    "hyperparameters": {
+      "MIP_SHORT_WINDOW_LIMIT": 12,
+      "MIP_LONG_WINDOW_DIVISOR": 6,
+      "MIP_TIME_LIMIT_MS": 3000,
+      "MIP_INTEGER_THRESHOLD": 0.5
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.5283474840000508,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 0,
+        "runtime_seconds": 4.670744745000093,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 2.750518173000046,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 6.522875621000139,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.12839009900017118,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "mip-time-8000",
+    "algorithm": "MIP",
+    "tuning": "time limit",
+    "script": "MIP/solution.py",
+    "env": {
+      "MIP_SHORT_WINDOW_LIMIT": "12",
+      "MIP_LONG_WINDOW_DIVISOR": "6",
+      "MIP_TIME_LIMIT_MS": "8000",
+      "MIP_INTEGER_THRESHOLD": "0.5"
+    },
+    "total_score": 400,
+    "total_runtime_seconds": 26.348189865999757,
+    "correct_tests": 4,
+    "hyperparameters": {
+      "MIP_SHORT_WINDOW_LIMIT": 12,
+      "MIP_LONG_WINDOW_DIVISOR": 6,
+      "MIP_TIME_LIMIT_MS": 8000,
+      "MIP_INTEGER_THRESHOLD": 0.5
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.13563228799989702,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 10.980216850000033,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 4960,
+        "value": 127851,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 3.277931523999996,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 11.855109373999994,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.09929982999983622,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "mip-time-15000",
+    "algorithm": "MIP",
+    "tuning": "time limit",
+    "script": "MIP/solution.py",
+    "env": {
+      "MIP_SHORT_WINDOW_LIMIT": "12",
+      "MIP_LONG_WINDOW_DIVISOR": "6",
+      "MIP_TIME_LIMIT_MS": "15000",
+      "MIP_INTEGER_THRESHOLD": "0.5"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 37.22335133799993,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "MIP_SHORT_WINDOW_LIMIT": 12,
+      "MIP_LONG_WINDOW_DIVISOR": 6,
+      "MIP_TIME_LIMIT_MS": 15000,
+      "MIP_INTEGER_THRESHOLD": 0.5
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.12124108200009687,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 15.038822658000072,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 4990,
+        "value": 128717,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 2.9199108429997978,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 19.03035640799999,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 9901,
+        "value": 252770,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.11302034699997421,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "mip-divisor-4",
+    "algorithm": "MIP",
+    "tuning": "candidate day density",
+    "script": "MIP/solution.py",
+    "env": {
+      "MIP_SHORT_WINDOW_LIMIT": "12",
+      "MIP_LONG_WINDOW_DIVISOR": "4",
+      "MIP_TIME_LIMIT_MS": "8000",
+      "MIP_INTEGER_THRESHOLD": "0.5"
+    },
+    "total_score": 400,
+    "total_runtime_seconds": 27.593525912000132,
+    "correct_tests": 4,
+    "hyperparameters": {
+      "MIP_SHORT_WINDOW_LIMIT": 12,
+      "MIP_LONG_WINDOW_DIVISOR": 4,
+      "MIP_TIME_LIMIT_MS": 8000,
+      "MIP_INTEGER_THRESHOLD": 0.5
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.155186760000106,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 10.90387031399996,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 4960,
+        "value": 127851,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 3.283293995000122,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 13.13645802499991,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.11471681800003353,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "mip-divisor-6",
+    "algorithm": "MIP",
+    "tuning": "candidate day density",
+    "script": "MIP/solution.py",
+    "env": {
+      "MIP_SHORT_WINDOW_LIMIT": "12",
+      "MIP_LONG_WINDOW_DIVISOR": "6",
+      "MIP_TIME_LIMIT_MS": "8000",
+      "MIP_INTEGER_THRESHOLD": "0.5"
+    },
+    "total_score": 400,
+    "total_runtime_seconds": 25.71021155600033,
+    "correct_tests": 4,
+    "hyperparameters": {
+      "MIP_SHORT_WINDOW_LIMIT": 12,
+      "MIP_LONG_WINDOW_DIVISOR": 6,
+      "MIP_TIME_LIMIT_MS": 8000,
+      "MIP_INTEGER_THRESHOLD": 0.5
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.1104968900001495,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 11.007136391000131,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 4960,
+        "value": 127851,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 2.7682029430000057,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 11.728446046000045,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.0959292860000005,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "mip-divisor-10",
+    "algorithm": "MIP",
+    "tuning": "candidate day density",
+    "script": "MIP/solution.py",
+    "env": {
+      "MIP_SHORT_WINDOW_LIMIT": "12",
+      "MIP_LONG_WINDOW_DIVISOR": "10",
+      "MIP_TIME_LIMIT_MS": "8000",
+      "MIP_INTEGER_THRESHOLD": "0.5"
+    },
+    "total_score": 400,
+    "total_runtime_seconds": 22.87860628699991,
+    "correct_tests": 4,
+    "hyperparameters": {
+      "MIP_SHORT_WINDOW_LIMIT": 12,
+      "MIP_LONG_WINDOW_DIVISOR": 10,
+      "MIP_TIME_LIMIT_MS": 8000,
+      "MIP_INTEGER_THRESHOLD": 0.5
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.1135925319999842,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 10.061559707000015,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 4960,
+        "value": 127851,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 2.5680852509999568,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 10.046997146999956,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.08837164999999914,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "cp-time-3.0",
+    "algorithm": "CP",
+    "tuning": "time limit",
+    "script": "CP/solution.py",
+    "env": {
+      "CP_SHORT_WINDOW_LIMIT": "12",
+      "CP_LONG_WINDOW_DIVISOR": "6",
+      "CP_MAX_TIME_SECONDS": "3.0",
+      "CP_NUM_SEARCH_WORKERS": "8"
+    },
+    "total_score": 300,
+    "total_runtime_seconds": 11.935381723999853,
+    "correct_tests": 3,
+    "hyperparameters": {
+      "CP_SHORT_WINDOW_LIMIT": 12,
+      "CP_LONG_WINDOW_DIVISOR": 6,
+      "CP_MAX_TIME_SECONDS": 3.0,
+      "CP_NUM_SEARCH_WORKERS": 8
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 1.0129856220000875,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 0,
+        "runtime_seconds": 3.760668874999965,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 1.2613854019998598,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 5.3215196930000275,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.5788221319999138,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "cp-time-8.0",
+    "algorithm": "CP",
+    "tuning": "time limit",
+    "script": "CP/solution.py",
+    "env": {
+      "CP_SHORT_WINDOW_LIMIT": "12",
+      "CP_LONG_WINDOW_DIVISOR": "6",
+      "CP_MAX_TIME_SECONDS": "8.0",
+      "CP_NUM_SEARCH_WORKERS": "8"
+    },
+    "total_score": 400,
+    "total_runtime_seconds": 17.872500644000183,
+    "correct_tests": 4,
+    "hyperparameters": {
+      "CP_SHORT_WINDOW_LIMIT": 12,
+      "CP_LONG_WINDOW_DIVISOR": 6,
+      "CP_MAX_TIME_SECONDS": 8.0,
+      "CP_NUM_SEARCH_WORKERS": 8
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.48265518800008067,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 6.438640066000062,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 1.6784505299999637,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 8.849703718,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.42305114200007665,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "cp-time-15.0",
+    "algorithm": "CP",
+    "tuning": "time limit",
+    "script": "CP/solution.py",
+    "env": {
+      "CP_SHORT_WINDOW_LIMIT": "12",
+      "CP_LONG_WINDOW_DIVISOR": "6",
+      "CP_MAX_TIME_SECONDS": "15.0",
+      "CP_NUM_SEARCH_WORKERS": "8"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 29.696678652999935,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "CP_SHORT_WINDOW_LIMIT": 12,
+      "CP_LONG_WINDOW_DIVISOR": 6,
+      "CP_MAX_TIME_SECONDS": 15.0,
+      "CP_NUM_SEARCH_WORKERS": 8
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.48021812399997543,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 5.968153357000119,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 1.6272628679998888,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 20.350981473000047,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 1.2700628309999047,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "cp-divisor-4",
+    "algorithm": "CP",
+    "tuning": "candidate day density",
+    "script": "CP/solution.py",
+    "env": {
+      "CP_SHORT_WINDOW_LIMIT": "12",
+      "CP_LONG_WINDOW_DIVISOR": "4",
+      "CP_MAX_TIME_SECONDS": "8.0",
+      "CP_NUM_SEARCH_WORKERS": "8"
+    },
+    "total_score": 400,
+    "total_runtime_seconds": 21.599781866999592,
+    "correct_tests": 4,
+    "hyperparameters": {
+      "CP_SHORT_WINDOW_LIMIT": 12,
+      "CP_LONG_WINDOW_DIVISOR": 4,
+      "CP_MAX_TIME_SECONDS": 8.0,
+      "CP_NUM_SEARCH_WORKERS": 8
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.702275998999994,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 6.826365341999917,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 1.5108249539998724,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 11.925572126999896,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.6347434449999128,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "cp-divisor-6",
+    "algorithm": "CP",
+    "tuning": "candidate day density",
+    "script": "CP/solution.py",
+    "env": {
+      "CP_SHORT_WINDOW_LIMIT": "12",
+      "CP_LONG_WINDOW_DIVISOR": "6",
+      "CP_MAX_TIME_SECONDS": "8.0",
+      "CP_NUM_SEARCH_WORKERS": "8"
+    },
+    "total_score": 400,
+    "total_runtime_seconds": 17.972197580000056,
+    "correct_tests": 4,
+    "hyperparameters": {
+      "CP_SHORT_WINDOW_LIMIT": 12,
+      "CP_LONG_WINDOW_DIVISOR": 6,
+      "CP_MAX_TIME_SECONDS": 8.0,
+      "CP_NUM_SEARCH_WORKERS": 8
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.5087820590001684,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 6.391912525999942,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 1.7288185319998775,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 8.66231860300013,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.680365859999938,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "cp-divisor-10",
+    "algorithm": "CP",
+    "tuning": "candidate day density",
+    "script": "CP/solution.py",
+    "env": {
+      "CP_SHORT_WINDOW_LIMIT": "12",
+      "CP_LONG_WINDOW_DIVISOR": "10",
+      "CP_MAX_TIME_SECONDS": "8.0",
+      "CP_NUM_SEARCH_WORKERS": "8"
+    },
+    "total_score": 400,
+    "total_runtime_seconds": 20.921658335999837,
+    "correct_tests": 4,
+    "hyperparameters": {
+      "CP_SHORT_WINDOW_LIMIT": 12,
+      "CP_LONG_WINDOW_DIVISOR": 10,
+      "CP_MAX_TIME_SECONDS": 8.0,
+      "CP_NUM_SEARCH_WORKERS": 8
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.7347393989998636,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 6.166622920000009,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 1.4730635939999956,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 0,
+        "runtime_seconds": 12.09952612799998,
+        "status": "valid_but_below_reference",
+        "valid": true,
+        "message": "ok",
+        "selected": 0,
+        "value": 0,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.44770629499998904,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  }
+]

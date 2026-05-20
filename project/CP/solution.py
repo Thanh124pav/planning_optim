@@ -1,20 +1,9 @@
 from ortools.sat.python import cp_model
-import os
 import sys
 
 
-SHORT_WINDOW_LIMIT = int(os.environ.get("CP_SHORT_WINDOW_LIMIT", "12"))
-LONG_WINDOW_DIVISOR = int(os.environ.get("CP_LONG_WINDOW_DIVISOR", "6"))
-MAX_TIME_SECONDS = float(os.environ.get("CP_MAX_TIME_SECONDS", "15.0"))
-NUM_SEARCH_WORKERS = int(os.environ.get("CP_NUM_SEARCH_WORKERS", "8"))
-
-
 def candidate_days(s, e):
-    length = e - s + 1
-    if length <= SHORT_WINDOW_LIMIT:
-        return list(range(s, e + 1))
-    step = max(1, length // max(1, LONG_WINDOW_DIVISOR))
-    return sorted(set([s, e, (s + e) // 2] + list(range(s, e + 1, step))))
+    return list(range(s, e + 1))
 
 
 def solve():
@@ -65,8 +54,6 @@ def solve():
     model.Maximize(sum(amount[i] * var for (i, _), var in x.items()))
 
     solver = cp_model.CpSolver()
-    solver.parameters.max_time_in_seconds = MAX_TIME_SECONDS
-    solver.parameters.num_search_workers = NUM_SEARCH_WORKERS
     status = solver.Solve(model)
 
     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:

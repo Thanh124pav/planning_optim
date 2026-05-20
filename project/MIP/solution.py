@@ -1,11 +1,4 @@
-import os
 import sys
-
-
-SHORT_WINDOW_LIMIT = int(os.environ.get("MIP_SHORT_WINDOW_LIMIT", "12"))
-LONG_WINDOW_DIVISOR = int(os.environ.get("MIP_LONG_WINDOW_DIVISOR", "6"))
-TIME_LIMIT_MS = int(os.environ.get("MIP_TIME_LIMIT_MS", "15000"))
-INTEGER_THRESHOLD = float(os.environ.get("MIP_INTEGER_THRESHOLD", "0.5"))
 
 
 def read_input():
@@ -23,11 +16,7 @@ def read_input():
 
 
 def candidate_days(s, e):
-    length = e - s + 1
-    if length <= SHORT_WINDOW_LIMIT:
-        return list(range(s, e + 1))
-    step = max(1, length // max(1, LONG_WINDOW_DIVISOR))
-    return sorted(set([s, e, (s + e) // 2] + list(range(s, e + 1, step))))
+    return list(range(s, e + 1))
 
 
 def emit(assign):
@@ -74,7 +63,6 @@ def solve():
         solver.Add(load >= min_load * y[day])
 
     solver.Maximize(sum(amount[i] * var for (i, _), var in x.items()))
-    solver.SetTimeLimit(TIME_LIMIT_MS)
     status = solver.Solve()
     if status not in (pywraplp.Solver.OPTIMAL, pywraplp.Solver.FEASIBLE):
         emit([-1] * (n + 1))
@@ -82,7 +70,7 @@ def solve():
 
     assign = [-1] * (n + 1)
     for (i, day), var in x.items():
-        if var.solution_value() > INTEGER_THRESHOLD:
+        if var.solution_value() > 0.5:
             assign[i] = day
     emit(assign)
 

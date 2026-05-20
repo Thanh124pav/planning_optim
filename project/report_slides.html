@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planning Optimization Reports - Slides</title>
+  <style>
+    :root {
+      --bg: #f6f3ed;
+      --ink: #1f2933;
+      --muted: #66717e;
+      --line: #d8d1c6;
+      --accent: #1f7a6d;
+      --accent-2: #b45309;
+      --good: #15803d;
+      --warn: #b45309;
+      --soft: rgba(255, 255, 255, .66);
+      --code-bg: #17212b;
+      --code-ink: #f1f7f8;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    .deck { min-height: 100vh; overflow: hidden; }
+
+    .slide {
+      display: none;
+      min-height: 100vh;
+      padding: 54px 70px 76px;
+      position: relative;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 { margin: 0; letter-spacing: 0; }
+    h1 { font-size: 56px; line-height: 1.04; max-width: 1050px; }
+    h2 { font-size: 40px; line-height: 1.1; margin-bottom: 24px; }
+    h3 { font-size: 23px; margin: 0 0 10px; color: var(--accent); }
+
+    p {
+      max-width: 1040px;
+      font-size: 21px;
+      margin: 12px 0;
+    }
+
+    ul, ol {
+      max-width: 1080px;
+      margin: 10px 0;
+      padding-left: 28px;
+      font-size: 20px;
+    }
+
+    li { margin: 7px 0; }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .94em;
+    }
+
+    pre {
+      max-width: 1120px;
+      margin: 14px 0 0;
+      padding: 18px 20px;
+      border-radius: 8px;
+      background: var(--code-bg);
+      color: var(--code-ink);
+      font-size: 16px;
+      line-height: 1.45;
+      overflow: auto;
+      max-height: 56vh;
+    }
+
+    table {
+      width: min(1120px, 100%);
+      border-collapse: collapse;
+      background: var(--soft);
+      font-size: 17px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    th:first-child, td:first-child,
+    th:nth-child(2), td:nth-child(2) {
+      text-align: left;
+    }
+
+    th {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      align-items: start;
+      max-width: 1120px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 1120px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px 22px;
+      background: var(--soft);
+    }
+
+    .panel p, .panel ul { font-size: 18px; }
+
+    .formula {
+      display: inline-block;
+      max-width: 1100px;
+      border-left: 4px solid var(--accent);
+      background: var(--soft);
+      padding: 14px 18px;
+      margin: 12px 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 19px;
+      white-space: pre-wrap;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      padding: 5px 10px;
+      margin: 4px 6px 0 0;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .metric {
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--accent);
+      margin: 6px 0;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 17px;
+      margin-top: 14px;
+    }
+
+    .warn { color: var(--warn); font-weight: 800; }
+    .good { color: var(--good); font-weight: 800; }
+
+    .concept {
+      max-width: 1120px;
+      border: 1px solid rgba(31, 122, 109, .35);
+      border-left: 6px solid var(--accent);
+      border-radius: 8px;
+      background: rgba(31, 122, 109, .07);
+      padding: 18px 22px;
+      margin: 12px 0 18px;
+    }
+
+    .concept strong {
+      color: var(--accent);
+    }
+
+    .param-note {
+      max-width: 1120px;
+      border-left: 4px solid var(--accent-2);
+      background: rgba(180, 83, 9, .07);
+      padding: 12px 16px;
+      margin: 0 0 14px;
+      color: var(--ink);
+      font-size: 17px;
+    }
+
+    .compact-table {
+      font-size: 14px;
+    }
+
+    .compact-table th,
+    .compact-table td {
+      padding: 6px 8px;
+    }
+
+    .viz {
+      width: min(1120px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .58);
+      padding: 14px;
+      margin-top: 16px;
+    }
+
+    .viz svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .viz-title {
+      fill: var(--ink);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .viz-label {
+      fill: var(--ink);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .viz-small {
+      fill: var(--muted);
+      font-size: 13px;
+    }
+
+    .viz-line {
+      stroke: #84909d;
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    .viz-dash {
+      stroke: #b7c0c9;
+      stroke-width: 2;
+      stroke-dasharray: 7 7;
+      stroke-linecap: round;
+    }
+
+    .viz-green { fill: rgba(31, 122, 109, .20); stroke: var(--accent); stroke-width: 2; }
+    .viz-orange { fill: rgba(180, 83, 9, .18); stroke: var(--accent-2); stroke-width: 2; }
+    .viz-blue { fill: rgba(37, 99, 235, .14); stroke: #2563eb; stroke-width: 2; }
+    .viz-red { fill: rgba(185, 28, 28, .13); stroke: #b91c1c; stroke-width: 2; }
+
+    .flow {
+      display: flex;
+      align-items: stretch;
+      gap: 12px;
+      max-width: 1120px;
+      margin-top: 16px;
+    }
+
+    .step {
+      flex: 1;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+      padding: 16px;
+      min-height: 96px;
+    }
+
+    .arrow {
+      display: flex;
+      align-items: center;
+      color: var(--accent);
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .footer {
+      position: absolute;
+      left: 70px;
+      right: 70px;
+      bottom: 26px;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+      padding-top: 11px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .slide { padding: 34px 24px 76px; }
+      h1 { font-size: 38px; }
+      h2 { font-size: 30px; }
+      p, ul, ol { font-size: 18px; }
+      .grid, .grid-3 { grid-template-columns: 1fr; }
+      .flow { flex-direction: column; }
+      .arrow { display: none; }
+      .footer { left: 24px; right: 24px; }
+      table { font-size: 14px; }
+      pre { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="slide active">
+      <div class="kicker">Planning Optimization</div>
+      <h1>Báo cáo bài tập lớn </h1><h1> Bài toán lập kế hoạch thu hoạch</h1>
+      <p>
+        <span class="badge">Greedy</span>
+        <span class="badge">Local Search</span>
+        <span class="badge">Dynamic Programming</span>
+        <span class="badge">MIP</span>
+        <span class="badge">CP-SAT</span>
+      </p>
+      <div class="footer"><span>Slide 1</span><span>Use ← / → or Space</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Agenda</div>
+      <h2>Nội dung trình bày</h2>
+      <div class="grid">
+        <div class="panel">
+          <h3>Nền tảng bài toán</h3>
+          <ul>
+            <li>Phát biểu bài toán và mục tiêu tối ưu.</li>
+            <li>Mô hình nghiệm, tải mỗi ngày và ràng buộc hợp lệ.</li>
+            <li>Thách thức khi kích thước dữ liệu lớn.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Các phương pháp</h3>
+          <ul>
+            <li>Greedy và các bước repair/fill.</li>
+            <li>Local search và các biến thể mở rộng.</li>
+            <li>DP truyền thống, DP cải biên </li>
+            <li> MIP và CP.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer"><span>Slide 2</span><span>Agenda</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Problem</div>
+      <h2>Phát biểu bài toán</h2>
+      <ul>
+        <li>Có <code>N</code> ruộng, ruộng <code>i</code> có sản lượng <code>d_i</code>.</li>
+        <li>Ruộng <code>i</code> chỉ có thể thu hoạch trong khoảng <code>[s_i, e_i]</code>.</li>
+        <li>Nhà máy có công suất tối đa mỗi ngày là <code>M</code>.</li>
+        <li>Nếu tổng sản lượng trong ngày nhỏ hơn <code>m</code>, nhà máy không hoạt động.</li>
+        <li>Mỗi ruộng có thể được chọn hoặc bỏ qua; nếu chọn thì gán đúng một ngày.</li>
+      </ul>
+      <div class="formula">maximize tổng sản lượng được thu hoạch</div>
+      <div class="footer"><span>Slide 3</span><span>Problem statement</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Problem Simulation</div>
+      <h2>Mô phỏng bài toán: ruộng, cửa sổ ngày và tải nhà máy</h2>
+      <p>Mỗi ruộng là một cửa sổ thời gian; nghiệm chọn một điểm trong cửa sổ đó hoặc bỏ qua ruộng.</p>
+      <div class="viz" aria-label="Problem timeline simulation">
+        <svg viewBox="0 0 1120 245" role="img">
+          <text x="30" y="32" class="viz-title">Timeline thu hoạch</text>
+          <text x="720" y="32" class="viz-title">Tải nhà máy trong một ngày</text>
+
+          <line x1="145" y1="70" x2="620" y2="70" class="viz-line"></line>
+          <text x="138" y="94" class="viz-small">1</text>
+          <text x="258" y="94" class="viz-small">2</text>
+          <text x="378" y="94" class="viz-small">3</text>
+          <text x="498" y="94" class="viz-small">4</text>
+          <text x="612" y="94" class="viz-small">5</text>
+          <line x1="145" y1="64" x2="145" y2="76" class="viz-line"></line>
+          <line x1="265" y1="64" x2="265" y2="76" class="viz-line"></line>
+          <line x1="385" y1="64" x2="385" y2="76" class="viz-line"></line>
+          <line x1="505" y1="64" x2="505" y2="76" class="viz-line"></line>
+          <line x1="620" y1="64" x2="620" y2="76" class="viz-line"></line>
+
+          <text x="30" y="132" class="viz-label">Ruộng A, d=8</text>
+          <rect x="145" y="112" width="240" height="26" rx="6" class="viz-green"></rect>
+          <circle cx="265" cy="125" r="8" fill="#1f7a6d"></circle>
+
+          <text x="30" y="174" class="viz-label">Ruộng B, d=6</text>
+          <rect x="265" y="154" width="240" height="26" rx="6" class="viz-orange"></rect>
+          <circle cx="385" cy="167" r="8" fill="#b45309"></circle>
+
+          <text x="30" y="216" class="viz-label">Ruộng C, d=9</text>
+          <rect x="385" y="196" width="235" height="26" rx="6" class="viz-blue"></rect>
+          <circle cx="505" cy="209" r="8" fill="#2563eb"></circle>
+
+          <rect x="720" y="74" width="310" height="30" rx="15" fill="#e8ecef"></rect>
+          <rect x="790" y="74" width="165" height="30" rx="15" fill="#1f7a6d"></rect>
+          <line x1="790" y1="58" x2="790" y2="120" class="viz-line"></line>
+          <line x1="955" y1="58" x2="955" y2="120" class="viz-line"></line>
+          <text x="783" y="142" class="viz-label">m</text>
+          <text x="948" y="142" class="viz-label">M</text>
+          <text x="814" y="95" fill="#ffffff" font-size="14" font-weight="800">hợp lệ</text>
+
+          <rect x="720" y="166" width="88" height="36" rx="6" class="viz-red"></rect>
+          <text x="742" y="190" class="viz-small">dưới m</text>
+          <rect x="840" y="166" width="105" height="36" rx="6" class="viz-green"></rect>
+          <text x="862" y="190" class="viz-small">hợp lệ</text>
+          <rect x="980" y="166" width="88" height="36" rx="6" class="viz-red"></rect>
+          <text x="1002" y="190" class="viz-small">vượt M</text>
+        </svg>
+      </div>
+      <div class="footer"><span>Slide</span><span>Problem simulation</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Common Model</div>
+      <h2>Mô hình hóa chung</h2>
+      <div class="grid">
+        <div class="panel">
+          <h3>Biểu diễn nghiệm</h3>
+          <p><code>x_i = t</code>: ruộng <code>i</code> được thu hoạch vào ngày <code>t</code>.</p>
+          <p><code>x_i = -1</code>: ruộng <code>i</code> không được chọn.</p>
+        </div>
+        <div class="panel">
+          <h3>Tải mỗi ngày</h3>
+          <p><code>load[t]</code> là tổng sản lượng của các ruộng được gán vào ngày <code>t</code>.</p>
+        </div>
+      </div>
+      <div class="formula">x_i = -1 hoặc s_i <= x_i <= e_i
+load[t] = 0 hoặc m <= load[t] <= M</div>
+      <div class="footer"><span>Slide 4</span><span>Model</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Difficulty</div>
+      <h2>Vì sao bài toán khó?</h2>
+      <ul>
+        <li>Bài toán có cả ràng buộc cửa sổ thời gian, capacity và điều kiện kích hoạt ngày.</li>
+        <li>Ràng buộc <code>load[t] = 0 hoặc load[t] >= m</code> tạo tính chất rời rạc.</li>
+        <li>Với <code>N</code> và số ngày tới <code>10000</code>, mô hình đầy đủ có thể rất lớn.</li>
+        <li>Một quyết định gán sớm có thể khiến ngày khác không đạt ngưỡng tối thiểu.</li>
+      </ul>
+      <p class="note">Vì vậy project triển khai đồng thời heuristic nhanh và mô hình tối ưu hóa bằng solver.</p>
+      <div class="footer"><span>Slide 5</span><span>Challenge</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Algorithm Map</div>
+      <h2>Bản đồ các hướng giải</h2>
+      <p>Các thuật toán trong project có thể nhìn như ba nhóm: xây nghiệm nhanh, cải thiện nghiệm, và mô hình hóa bằng solver.</p>
+      <div class="viz" aria-label="Algorithm roadmap">
+        <svg viewBox="0 0 1120 360" role="img">
+          <defs>
+            <marker id="arrow-road" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#1f7a6d"></path>
+            </marker>
+          </defs>
+          <rect x="40" y="130" width="190" height="82" rx="10" class="viz-green"></rect>
+          <text x="82" y="162" class="viz-title">Input</text>
+          <text x="66" y="190" class="viz-small">ruộng, cửa sổ ngày, m, M</text>
+
+          <rect x="300" y="60" width="210" height="82" rx="10" class="viz-orange"></rect>
+          <text x="346" y="92" class="viz-title">Heuristic nhanh</text>
+          <text x="348" y="120" class="viz-small">Greedy</text>
+
+          <rect x="300" y="162" width="210" height="82" rx="10" class="viz-blue"></rect>
+          <text x="336" y="194" class="viz-title">Cải thiện nghiệm</text>
+          <text x="330" y="222" class="viz-small">Local Search, DP knapsack</text>
+
+          <rect x="300" y="264" width="210" height="62" rx="10" class="viz-green"></rect>
+          <text x="346" y="297" class="viz-title">Solver model</text>
+          <text x="352" y="318" class="viz-small">MIP, CP-SAT</text>
+
+          <rect x="650" y="130" width="210" height="82" rx="10" class="viz-orange"></rect>
+          <text x="700" y="162" class="viz-title">Kế hoạch</text>
+          <text x="690" y="190" class="viz-small">assign[i], load[t] hợp lệ</text>
+
+          <rect x="920" y="130" width="160" height="82" rx="10" class="viz-green"></rect>
+          <text x="960" y="162" class="viz-title">Score</text>
+          <text x="944" y="190" class="viz-small">tổng sản lượng</text>
+
+          <line x1="230" y1="171" x2="300" y2="101" class="viz-line" marker-end="url(#arrow-road)"></line>
+          <line x1="230" y1="171" x2="300" y2="203" class="viz-line" marker-end="url(#arrow-road)"></line>
+          <line x1="230" y1="171" x2="300" y2="295" class="viz-line" marker-end="url(#arrow-road)"></line>
+          <line x1="510" y1="101" x2="650" y2="156" class="viz-line" marker-end="url(#arrow-road)"></line>
+          <line x1="510" y1="203" x2="650" y2="180" class="viz-line" marker-end="url(#arrow-road)"></line>
+          <line x1="510" y1="295" x2="650" y2="196" class="viz-line" marker-end="url(#arrow-road)"></line>
+          <line x1="860" y1="171" x2="920" y2="171" class="viz-line" marker-end="url(#arrow-road)"></line>
+        </svg>
+      </div>
+      <div class="footer"><span>Slide</span><span>Algorithm roadmap</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Greedy</div>
+      <h2>Tổng quan phương pháp Greedy</h2>
+      <div class="concept">
+        <p><strong>Greedy</strong> là cách giải “chọn điều có vẻ tốt nhất ở thời điểm hiện tại”. Thuật toán không thử mọi khả năng, mà ra quyết định từng bước dựa trên một quy tắc ưu tiên đơn giản.</p>
+      </div>
+      <p>Trong bài toán thu hoạch, greedy giống như việc lập lịch thủ công: ta ưu tiên xếp trước các ruộng khó xếp, rồi đặt mỗi ruộng vào ngày đang phù hợp nhất. Cách này rất nhanh và dễ hiểu, nhưng không có bảo đảm luôn tìm được nghiệm tối ưu toàn cục.</p>
+      <div class="grid">
+        <div class="panel">
+          <h3>Ưu điểm</h3>
+          <ul>
+            <li>Chạy rất nhanh trên dữ liệu lớn.</li>
+            <li>Dễ triển khai và dễ giải thích.</li>
+            <li>Tạo nghiệm ban đầu tốt cho các thuật toán khác.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Hạn chế</h3>
+          <ul>
+            <li>Quyết định sớm có thể làm mất cơ hội tốt về sau.</li>
+            <li>Cần bước sửa nghiệm để xử lý ngày có tải dưới <code>m</code>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer"><span>Slide 6</span><span>Greedy intro</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Greedy</div>
+      <h2>Greedy: mô hình hóa và ý tưởng</h2>
+      <p>Greedy xem ruộng như item và ngày như bin có capacity <code>M</code>. Nếu một bin được dùng, tải của nó phải đạt ít nhất <code>m</code>.</p>
+      <ul>
+        <li>Xử lý trước các ruộng khó xếp: cửa sổ ngắn và deadline sớm.</li>
+        <li>Gán ruộng vào ngày khả thi có tải hiện tại lớn nhất.</li>
+        <li>Gom tải vào ngày đang hoạt động để dễ đạt ngưỡng <code>m</code>.</li>
+      </ul>
+      <div class="formula">sort fields by (e_i - s_i, e_i, -d_i)
+choose day t with max load[t], subject to load[t] + d_i <= M</div>
+      <div class="footer"><span>Slide 7</span><span>Greedy idea</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Greedy</div>
+      <h2>Greedy: lời giải</h2>
+      <div class="flow">
+        <div class="step"><h3>1. Sort</h3><p>Sắp xếp ruộng theo độ khó: cửa sổ ngắn, deadline sớm, sản lượng lớn.</p></div>
+        <div class="arrow">→</div>
+        <div class="step"><h3>2. Assign</h3><p>Gán từng ruộng vào ngày còn capacity và có tải lớn nhất.</p></div>
+        <div class="arrow">→</div>
+        <div class="step"><h3>3. Repair</h3><p>Di chuyển hoặc loại ruộng ở ngày có tải dưới <code>m</code>.</p></div>
+        <div class="arrow">→</div>
+        <div class="step"><h3>4. Fill</h3><p>Nhét thêm ruộng vào ngày hoạt động hoặc mở ngày mới nếu đủ tải.</p></div>
+      </div>
+      <div class="footer"><span>Slide 8</span><span>Greedy solution</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Greedy Simulation</div>
+      <h2>Mô phỏng Greedy: gán, repair và fill</h2>
+      <div class="viz" aria-label="Greedy assignment simulation">
+        <svg viewBox="0 0 1120 370" role="img">
+          <defs>
+            <marker id="arrow-greedy-sim" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#1f7a6d"></path>
+            </marker>
+          </defs>
+          <text x="28" y="34" class="viz-title">Ví dụ m=10, M=20: Greedy tạo nghiệm rồi sửa nghiệm</text>
+
+          <rect x="55" y="80" width="210" height="80" rx="10" class="viz-green"></rect>
+          <text x="82" y="112" class="viz-label">1. Chọn ruộng khó</text>
+          <text x="82" y="140" class="viz-small">cửa sổ ngắn, deadline sớm</text>
+
+          <rect x="335" y="80" width="210" height="80" rx="10" class="viz-orange"></rect>
+          <text x="362" y="112" class="viz-label">2. Gán vào ngày</text>
+          <text x="362" y="140" class="viz-small">load lớn nhất còn đủ chỗ</text>
+
+          <rect x="615" y="80" width="210" height="80" rx="10" class="viz-red"></rect>
+          <text x="642" y="112" class="viz-label">3. Repair ngày yếu</text>
+          <text x="642" y="140" class="viz-small">0 &lt; load &lt; m</text>
+
+          <rect x="895" y="80" width="170" height="80" rx="10" class="viz-blue"></rect>
+          <text x="924" y="112" class="viz-label">4. Fill</text>
+          <text x="914" y="140" class="viz-small">lấp thêm capacity</text>
+
+          <line x1="265" y1="120" x2="335" y2="120" class="viz-line" marker-end="url(#arrow-greedy-sim)"></line>
+          <line x1="545" y1="120" x2="615" y2="120" class="viz-line" marker-end="url(#arrow-greedy-sim)"></line>
+          <line x1="825" y1="120" x2="895" y2="120" class="viz-line" marker-end="url(#arrow-greedy-sim)"></line>
+
+          <text x="70" y="220" class="viz-title">Tải ngày sau gán ban đầu</text>
+          <rect x="70" y="245" width="72" height="45" rx="7" class="viz-green"></rect>
+          <text x="92" y="274" class="viz-label">18</text>
+          <text x="78" y="310" class="viz-small">ngày 1</text>
+
+          <rect x="190" y="260" width="72" height="30" rx="7" class="viz-red"></rect>
+          <text x="214" y="282" class="viz-label">7</text>
+          <text x="198" y="310" class="viz-small">ngày 2</text>
+
+          <rect x="310" y="250" width="72" height="40" rx="7" class="viz-green"></rect>
+          <text x="334" y="276" class="viz-label">14</text>
+          <text x="318" y="310" class="viz-small">ngày 3</text>
+
+          <line x1="455" y1="268" x2="610" y2="268" class="viz-line" marker-end="url(#arrow-greedy-sim)"></line>
+          <text x="468" y="248" class="viz-small">repair: chuyển hoặc bỏ tải 7</text>
+
+          <rect x="650" y="245" width="72" height="45" rx="7" class="viz-green"></rect>
+          <text x="672" y="274" class="viz-label">18</text>
+          <text x="658" y="310" class="viz-small">ngày 1</text>
+
+          <rect x="770" y="290" width="72" height="0" rx="7" class="viz-red"></rect>
+          <text x="794" y="282" class="viz-label">0</text>
+          <text x="778" y="310" class="viz-small">ngày 2</text>
+
+          <rect x="890" y="238" width="72" height="52" rx="7" class="viz-blue"></rect>
+          <text x="912" y="270" class="viz-label">19</text>
+          <text x="898" y="310" class="viz-small">ngày 3</text>
+        </svg>
+      </div>
+      <div class="footer"><span>Slide</span><span>Greedy simulation</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Local Search</div>
+      <h2>Tổng quan phương pháp Local Search</h2>
+      <div class="concept">
+        <p><strong>Local Search</strong> bắt đầu từ một nghiệm đã có, sau đó thử các thay đổi nhỏ xung quanh nghiệm đó để xem có cải thiện được không.</p>
+      </div>
+      <p>Nếu greedy giống như lập lịch nhanh một lần, thì local search giống như nhìn lại lịch đã lập và chỉnh từng chỗ: thêm một ruộng, đổi ngày, hoán đổi hai ruộng, hoặc thay ruộng nhỏ bằng ruộng lớn hơn.</p>
+      <div class="formula">nghiệm hiện tại -> thay đổi nhỏ -> kiểm tra hợp lệ -> giữ nếu có ích</div>
+      <p class="note">Điểm quan trọng của local search là định nghĩa “lân cận”: ta cho phép thuật toán thử những kiểu thay đổi nào.</p>
+      <div class="footer"><span>Slide 9</span><span>Local search intro</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Local Search</div>
+      <h2>Local Search cơ bản</h2>
+      <p>Local search bắt đầu từ nghiệm greedy rồi cải thiện bằng các thay đổi cục bộ.</p>
+      <ul>
+        <li>Nghiệm ban đầu: <code>assign, loads</code> từ greedy.</li>
+        <li>Lân cận cơ bản: thêm một ruộng chưa chọn vào ngày khả thi.</li>
+        <li>Ưu tiên xét ruộng có sản lượng lớn trước.</li>
+        <li>Sau mỗi vòng insert: <code>repair -> fill -> repair</code>.</li>
+      </ul>
+      <pre><code>while improved and rounds < MAX_ROUNDS:
+    for unassigned field i by decreasing d_i:
+        day = best feasible day
+        if day is active or d_i >= m:
+            assign i to day
+    repair()
+    fill_solution()
+    repair()</code></pre>
+      <div class="footer"><span>Slide 10</span><span>Local search</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Local Search Variants</div>
+      <h2>Cơ sở mở rộng lân cận tìm kiếm</h2>
+      <div class="concept">
+        <p>Local search mạnh hay yếu phụ thuộc vào loại “nước đi” mà nó được phép thử. Nếu chỉ thêm ruộng mới, thuật toán khó sửa những quyết định đã gán sai từ đầu.</p>
+      </div>
+      <p>Các biến thể mở rộng cho phép thuật toán tái cấu trúc nghiệm: chuyển ruộng sang ngày khác, hoán đổi hai ruộng, thay ruộng nhỏ bằng ruộng lớn, hoặc chuyển cả nhóm ruộng. Nhờ vậy thuật toán có nhiều đường hơn để thoát khỏi nghiệm cục bộ.</p>
+      <div class="footer"><span>Slide 11</span><span>Local search variants intro</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Local Search Variants</div>
+      <h2>Các biến thể lân cận</h2>
+      <div class="grid">
+        <div class="panel">
+          <h3>Move đơn</h3>
+          <ul>
+            <li><code>insert</code>: thêm ruộng chưa chọn.</li>
+            <li><code>relocate</code>: đổi ngày của một ruộng đã chọn.</li>
+            <li><code>swap</code>: hoán đổi ngày giữa hai ruộng.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Move tái cấu trúc</h3>
+          <ul>
+            <li><code>replace</code>: bỏ ruộng nhỏ để nhét ruộng lớn.</li>
+            <li><code>group</code>: chuyển nhóm ruộng giữa hai ngày.</li>
+            <li><code>all moves</code>: phối hợp toàn bộ lân cận.</li>
+          </ul>
+        </div>
+      </div>
+      <p><strong>Group</strong> nghĩa là chọn một nhóm nhỏ ruộng đang nằm ở cùng một ngày nguồn, rồi thử chuyển cả nhóm sang một ngày đích nếu mọi ruộng trong nhóm đều hợp lệ ở ngày đích, ngày đích còn capacity, và ngày nguồn sau khi mất nhóm vẫn rỗng hoặc đạt tối thiểu <code>m</code>.</p>
+      <p><strong>All moves</strong> nghĩa là trong mỗi vòng local search, thuật toán lần lượt thử nhiều loại move: insert, relocate, swap, replace và group. Sau mỗi move thành công, nghiệm được repair/fill lại trước khi thử move tiếp theo.</p>
+      <p class="note">Mục tiêu là mở rộng không gian tìm kiếm, không chỉ thêm ruộng mà còn sửa quyết định cũ.</p>
+      <div class="footer"><span>Slide 12</span><span>Local search variants</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Local Search Variants</div>
+      <h2>Cơ chế chạy của từng option</h2>
+      <p>Một vòng local search thử các option theo thứ tự <code>insert -> relocate -> swap -> replace -> group</code>. Option nào thành công thì nghiệm được cập nhật, sau đó chạy lại <code>repair -> fill -> repair</code> trước khi thử option tiếp theo.</p>
+      <table class="compact-table">
+        <thead>
+          <tr><th>Option</th><th>Tập được xét</th><th>Cách tạo nghiệm mới</th><th>Điều kiện nhận</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>insert</code></td><td><code>top unassigned</code>: ruộng chưa gán có <code>d_i</code> lớn nhất</td><td>Chọn ngày khả thi tốt nhất rồi thêm ruộng vào ngày đó.</td><td>Ngày còn capacity và đã hoạt động, hoặc riêng ruộng đó đủ đạt <code>m</code>.</td></tr>
+          <tr><td><code>relocate</code></td><td><code>top assigned</code>: ruộng đã gán có cửa sổ hẹp trước, rồi <code>d_i</code> lớn</td><td>Chuyển một ruộng từ ngày nguồn sang một ngày đích trong cửa sổ của nó.</td><td>Nguồn sau khi bỏ ruộng vẫn rỗng hoặc đạt <code>m</code>; đích đang hoạt động và không vượt <code>M</code>.</td></tr>
+          <tr><td><code>swap</code></td><td>Nhóm ruộng đã gán lớn nhất và nhóm ruộng đã gán nhỏ nhất</td><td>Đổi ngày của hai ruộng nếu mỗi ruộng đều hợp lệ ở ngày của ruộng kia.</td><td>Cả hai ngày sau swap đều không vượt <code>M</code> và đều rỗng hoặc đạt <code>m</code>.</td></tr>
+          <tr><td><code>replace</code></td><td>Ruộng chưa gán lớn nhất và ruộng đã gán nhỏ nhất</td><td>Bỏ một ruộng nhỏ khỏi ngày hiện tại, thay bằng một ruộng chưa gán lớn hơn.</td><td>Ruộng lớn hợp lệ ở ngày đó; tải mới không vượt <code>M</code> và vẫn hợp lệ theo <code>m</code>.</td></tr>
+          <tr><td><code>group</code></td><td>Ngày nguồn tải thấp, ngày đích còn trống nhiều; lấy tối đa <code>group size</code> ruộng nhỏ</td><td>Chuyển cả nhóm ruộng từ ngày nguồn sang ngày đích.</td><td>Mọi ruộng trong nhóm đều hợp lệ ở ngày đích; đích đủ capacity; nguồn còn hợp lệ.</td></tr>
+        </tbody>
+      </table>
+      <p class="note"><code>top unassigned</code> và <code>top assigned</code> không phải mục tiêu tối ưu; chúng là giới hạn số ứng viên được thử để thuật toán chạy nhanh trên dữ liệu lớn.</p>
+      <div class="footer"><span>Slide</span><span>Local search variant mechanics</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Local Search Simulation</div>
+      <h2>Mô phỏng các move trong Local Search</h2>
+      <div class="viz" aria-label="Local search moves simulation">
+        <svg viewBox="0 0 1120 390" role="img">
+          <defs>
+            <marker id="arrow-ls-sim" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#1f7a6d"></path>
+            </marker>
+          </defs>
+          <text x="30" y="35" class="viz-title">Mỗi move là một cách tạo nghiệm lân cận từ nghiệm hiện tại</text>
+
+          <rect x="40" y="70" width="195" height="92" rx="10" class="viz-green"></rect>
+          <text x="68" y="100" class="viz-label">insert</text>
+          <text x="68" y="126" class="viz-small">thêm ruộng chưa chọn</text>
+          <circle cx="85" cy="146" r="10" fill="#1f7a6d"></circle>
+          <line x1="110" y1="146" x2="180" y2="146" class="viz-line" marker-end="url(#arrow-ls-sim)"></line>
+
+          <rect x="270" y="70" width="195" height="92" rx="10" class="viz-orange"></rect>
+          <text x="298" y="100" class="viz-label">relocate</text>
+          <text x="298" y="126" class="viz-small">đổi ngày của một ruộng</text>
+          <circle cx="318" cy="146" r="9" fill="#b45309"></circle>
+          <line x1="338" y1="146" x2="420" y2="146" class="viz-line" marker-end="url(#arrow-ls-sim)"></line>
+
+          <rect x="500" y="70" width="195" height="92" rx="10" class="viz-blue"></rect>
+          <text x="528" y="100" class="viz-label">swap</text>
+          <text x="528" y="126" class="viz-small">hoán đổi hai ruộng</text>
+          <circle cx="552" cy="146" r="9" fill="#2563eb"></circle>
+          <circle cx="638" cy="146" r="9" fill="#b45309"></circle>
+          <line x1="566" y1="146" x2="624" y2="146" class="viz-line" marker-end="url(#arrow-ls-sim)"></line>
+          <line x1="624" y1="156" x2="566" y2="156" class="viz-line" marker-end="url(#arrow-ls-sim)"></line>
+
+          <rect x="730" y="70" width="195" height="92" rx="10" class="viz-red"></rect>
+          <text x="758" y="100" class="viz-label">replace</text>
+          <text x="758" y="126" class="viz-small">ruộng nhỏ -> ruộng lớn</text>
+          <circle cx="782" cy="146" r="7" fill="#b91c1c"></circle>
+          <line x1="800" y1="146" x2="865" y2="146" class="viz-line" marker-end="url(#arrow-ls-sim)"></line>
+          <circle cx="885" cy="146" r="12" fill="#1f7a6d"></circle>
+
+          <rect x="160" y="220" width="345" height="104" rx="10" class="viz-green"></rect>
+          <text x="190" y="252" class="viz-label">group</text>
+          <text x="190" y="278" class="viz-small">chuyển cả nhóm ruộng từ ngày nguồn sang ngày đích</text>
+          <circle cx="230" cy="302" r="8" fill="#1f7a6d"></circle>
+          <circle cx="255" cy="302" r="8" fill="#1f7a6d"></circle>
+          <circle cx="280" cy="302" r="8" fill="#1f7a6d"></circle>
+          <line x1="302" y1="302" x2="420" y2="302" class="viz-line" marker-end="url(#arrow-ls-sim)"></line>
+          <rect x="425" y="287" width="52" height="30" rx="6" class="viz-orange"></rect>
+
+          <rect x="595" y="220" width="345" height="104" rx="10" class="viz-blue"></rect>
+          <text x="625" y="252" class="viz-label">all moves</text>
+          <text x="625" y="278" class="viz-small">thử tuần tự insert, relocate, swap, replace, group</text>
+          <text x="625" y="306" class="viz-small">sau mỗi move thành công: repair -> fill -> repair</text>
+        </svg>
+      </div>
+      <div class="footer"><span>Slide</span><span>Local search moves simulation</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Dynamic Programming</div>
+      <h2>Tổng quan phương pháp Dynamic Programming</h2>
+      <div class="concept">
+        <p><strong>Dynamic Programming</strong> chia bài toán lớn thành các bài toán con, lưu kết quả bài toán con để không phải tính lại. Nó phù hợp khi quyết định hiện tại có thể mô tả bằng một trạng thái rõ ràng.</p>
+      </div>
+      <p>Trong bài toán này, phần giống DP nhất là bài toán knapsack: với một ngày còn capacity, chọn tập ruộng sao cho tổng sản lượng lấp đầy ngày đó tốt nhất.</p>
+      <div class="formula">trạng thái capacity w -> thử thêm ruộng i -> cập nhật dp[w]</div>
+      <div class="footer"><span>Slide 13</span><span>DP intro</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Dynamic Programming</div>
+      <h2>Bài toán con Knapsack</h2>
+      <div class="concept">
+        <p><strong>Knapsack</strong> là bài toán chọn một tập vật phẩm sao cho tổng trọng lượng không vượt quá sức chứa, đồng thời tổng giá trị là lớn nhất.</p>
+      </div>
+      <p>Trong bài toán thu hoạch, nếu xét riêng một ngày, capacity còn lại của ngày đó giống như sức chứa của balo. Mỗi ruộng chưa chọn là một vật phẩm, có trọng lượng và giá trị đều bằng sản lượng <code>d_i</code>.</p>
+      <p>Điểm khác với greedy tuần tự là DP không chỉ cộng ruộng theo thứ tự cho đến khi gần đầy. Nó giữ đồng thời nhiều tổng tải khả thi, ví dụ tổng 4, 6, 7, 10, rồi chọn tổ hợp tốt nhất sau khi xét xong các candidate.</p>
+      <div class="grid">
+        <div class="panel">
+          <h3>Ánh xạ sang bài toán này</h3>
+          <ul>
+            <li>Balo: một ngày thu hoạch.</li>
+            <li>Sức chứa: <code>M - load[t]</code> hoặc <code>M</code>.</li>
+            <li>Vật phẩm: ruộng có thể thu hoạch trong ngày đó.</li>
+            <li>Trọng lượng/giá trị: <code>d_i</code>.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Trạng thái DP</h3>
+          <p><code>dp[w]</code> lưu tổng sản lượng tốt nhất đạt được khi dùng capacity <code>w</code>.</p>
+          <p>Khi xét ruộng <code>i</code>, ta có hai lựa chọn: không chọn ruộng, hoặc chọn ruộng nếu còn đủ capacity.</p>
+        </div>
+      </div>
+      <div class="formula">dp[w] = max(dp[w], dp[w - d_i] + d_i)</div>
+      <ul>
+        <li>Khởi tạo <code>dp[0] = 0</code>, các trạng thái còn lại là chưa đạt được.</li>
+        <li>Duyệt từng ruộng candidate; với mỗi ruộng, cập nhật capacity <code>w</code> theo chiều giảm dần, từ capacity lớn về <code>d_i</code>, để ruộng hiện tại không bị dùng lại nhiều lần trong cùng một lượt.</li>
+        <li>Sau khi cập nhật xong, chọn capacity tốt nhất: bản DP cục bộ chọn tổng lớn nhất không vượt phần còn trống; bản DP truyền thống chọn tổng tốt nhất trong đoạn <code>[m, M]</code>.</li>
+        <li>Mảng <code>parent</code> lưu trạng thái trước đó để truy vết ngược và biết những ruộng nào đã được chọn.</li>
+      </ul>
+      <div class="footer"><span>Slide 14</span><span>Knapsack subproblem</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Knapsack Simulation</div>
+      <h2>Mô phỏng Knapsack: tập tổng khả thi</h2>
+      <p>Trong DP cải biên, candidate được ưu tiên theo <code>d_i</code> giảm dần. DP không lưu một đường chọn tuần tự; nó lưu tập các tổng tải có thể đạt được sau khi đã xét một số ruộng.</p>
+      <div class="viz" aria-label="Knapsack reachable sums simulation">
+        <svg viewBox="0 0 1120 390" role="img">
+          <defs>
+            <marker id="arrow-knap" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#1f7a6d"></path>
+            </marker>
+          </defs>
+          <text x="30" y="36" class="viz-title">Capacity = 10; thứ tự xét theo d_i giảm dần: C=7, B=6, A=4</text>
+
+          <rect x="40" y="68" width="150" height="64" rx="10" class="viz-blue"></rect>
+          <text x="78" y="102" class="viz-label">Ruộng C</text>
+          <text x="88" y="126" class="viz-small">d = 7</text>
+          <rect x="210" y="68" width="150" height="64" rx="10" class="viz-orange"></rect>
+          <text x="248" y="102" class="viz-label">Ruộng B</text>
+          <text x="258" y="126" class="viz-small">d = 6</text>
+          <rect x="380" y="68" width="150" height="64" rx="10" class="viz-green"></rect>
+          <text x="418" y="102" class="viz-label">Ruộng A</text>
+          <text x="428" y="126" class="viz-small">d = 4</text>
+
+          <line x1="540" y1="100" x2="610" y2="100" class="viz-line" marker-end="url(#arrow-knap)"></line>
+
+          <text x="640" y="68" class="viz-title">Tập tổng khả thi sau từng bước</text>
+          <rect x="640" y="88" width="410" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect>
+          <text x="665" y="115" class="viz-label">Ban đầu: {0}</text>
+          <rect x="640" y="142" width="410" height="42" rx="7" class="viz-blue"></rect>
+          <text x="665" y="169" class="viz-label">Sau C=7: {0, 7}</text>
+          <rect x="640" y="196" width="410" height="42" rx="7" class="viz-orange"></rect>
+          <text x="665" y="223" class="viz-label">Sau B=6: {0, 6, 7}</text>
+          <rect x="640" y="250" width="410" height="42" rx="7" class="viz-green"></rect>
+          <text x="665" y="277" class="viz-label">Sau A=4: {0, 4, 6, 7, 10}</text>
+
+          <rect x="40" y="165" width="520" height="110" rx="10" fill="#f4efe6" stroke="#d8d1c6"></rect>
+          <text x="70" y="198" class="viz-title">Cách đọc hình</text>
+          <text x="70" y="230" class="viz-small">Mỗi dòng bên phải là các tổng tải có thể đạt được</text>
+          <text x="70" y="258" class="viz-small">sau khi đã xét thêm một ruộng trong danh sách.</text>
+
+          <rect x="40" y="310" width="1010" height="52" rx="10" class="viz-green"></rect>
+          <text x="70" y="342" class="viz-label">Kết quả tốt nhất: 10 = A(4) + B(6). Các tổng 11, 13, 17 bị loại vì vượt capacity 10.</text>
+        </svg>
+      </div>
+      <div class="footer"><span>Slide</span><span>Knapsack DP table</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Dynamic Programming</div>
+      <h2>Cơ sở của DP truyền thống theo ngày</h2>
+      <div class="concept">
+        <p>DP truyền thống trong project không dựa vào nghiệm greedy trước. Thay vào đó, nó đi từng ngày và tự chọn một nhóm ruộng bằng bảng DP capacity.</p>
+      </div>
+      <p>Có thể hình dung mỗi ngày là một chiếc balo có sức chứa <code>M</code>. Thuật toán chọn các ruộng bỏ vào “balo ngày đó” sao cho tổng sản lượng ít nhất <code>m</code> và càng gần <code>M</code> càng tốt.</p>
+      <div class="footer"><span>Slide 15</span><span>Traditional DP intro</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Dynamic Programming</div>
+      <h2>DP truyền thống theo từng ngày</h2>
+      <p><code>DP_traditional</code> trực tiếp duyệt qua các ngày. Với mỗi ngày, thuật toán giải một bài toán knapsack để chọn nhóm ruộng mở ngày đó.</p>
+      <div class="formula">choose subset S for day t
+m <= sum(d_i for i in S) <= M
+maximize sum(d_i for i in S)</div>
+      <ul>
+        <li>Candidate là ruộng chưa gán và có thể thu hoạch ở ngày <code>t</code>.</li>
+        <li>Sắp xếp candidate theo deadline, độ dài cửa sổ và sản lượng.</li>
+        <li>Siêu tham số chính: <code>DP_TRAD_MAX_CANDIDATES</code> và <code>DP_TRAD_PASSES</code>.</li>
+      </ul>
+      <div class="footer"><span>Slide 16</span><span>Traditional DP</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Dynamic Programming</div>
+      <h2>DP cải biên: Greedy + Knapsack cục bộ</h2>
+      <p>Phương pháp trong folder <code>DP</code> không giải DP toàn cục. Nó dùng greedy tạo nghiệm ban đầu, rồi giải knapsack cho từng ngày để lấp capacity còn trống.</p>
+      <div class="formula">remaining = M - load[t]
+candidates = ruộng chưa chọn có s_i <= t <= e_i
+maximize tổng d_i được thêm, subject to tổng d_i <= remaining</div>
+      <ul>
+        <li>Trạng thái: <code>dp[w]</code> là sản lượng tốt nhất với capacity <code>w</code>.</li>
+        <li>Chuyển trạng thái: <code>dp[w] = max(dp[w], dp[w-d_i] + d_i)</code>.</li>
+        <li>Giới hạn candidate bằng <code>DP_CANDIDATE_LIMIT</code> để chạy nhanh.</li>
+      </ul>
+      <div class="footer"><span>Slide 17</span><span>Local DP</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">MIP</div>
+      <h2>Tổng quan phương pháp Mixed-Integer Programming</h2>
+      <div class="concept">
+        <p><strong>Mixed-Integer Programming</strong> là cách biến bài toán thành một mô hình toán học gồm hàm mục tiêu và các ràng buộc. Một số biến bị ép là số nguyên hoặc nhị phân.</p>
+      </div>
+      <p>Với bài toán thu hoạch, MIP hỏi solver: “hãy chọn biến <code>x[i,t]</code> bằng 0 hoặc 1 sao cho tổng sản lượng lớn nhất, nhưng mọi ràng buộc đều đúng”. Đây là cách mô hình hóa chặt chẽ hơn heuristic, đổi lại thời gian chạy cao hơn.</p>
+      <div class="footer"><span>Slide 18</span><span>MIP intro</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">MIP</div>
+      <h2>Mixed-Integer Programming</h2>
+      <p>MIP mô hình hóa trực tiếp bài toán bằng biến nhị phân cho việc chọn ruộng-ngày và mở ngày.</p>
+      <div class="grid">
+        <div class="panel">
+          <h3>Biến</h3>
+          <p><code>x[i,t] ∈ {0,1}</code>: ruộng <code>i</code> được thu hoạch ngày <code>t</code>.</p>
+          <p><code>y[t] ∈ {0,1}</code>: ngày <code>t</code> được mở.</p>
+        </div>
+        <div class="panel">
+          <h3>Ràng buộc</h3>
+          <p><code>sum_t x[i,t] <= 1</code></p>
+          <p><code>m*y[t] <= load[t] <= M*y[t]</code></p>
+        </div>
+      </div>
+      <p class="note">Solver dùng SCIP. Mô hình được thu gọn bằng <code>candidate_days()</code> để giảm số biến.</p>
+      <div class="footer"><span>Slide 19</span><span>MIP model</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Solver Model Simulation</div>
+      <h2>Mô phỏng biến quyết định trong MIP/CP</h2>
+      <p>MIP và CP đều dùng ma trận biến <code>x[i,t]</code>. Mỗi ô là quyết định “ruộng i có thu hoạch vào ngày t không?”. Biến <code>y[t]</code> bật/tắt ngày hoạt động.</p>
+      <div class="viz" aria-label="MIP CP variable matrix simulation">
+        <svg viewBox="0 0 1120 390" role="img">
+          <text x="40" y="38" class="viz-title">Ma trận x[i,t] và biến mở ngày y[t]</text>
+          <text x="170" y="82" class="viz-label">Ngày 1</text>
+          <text x="285" y="82" class="viz-label">Ngày 2</text>
+          <text x="400" y="82" class="viz-label">Ngày 3</text>
+          <text x="515" y="82" class="viz-label">Ngày 4</text>
+
+          <text x="55" y="126" class="viz-label">Ruộng A</text>
+          <rect x="170" y="102" width="70" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect>
+          <rect x="285" y="102" width="70" height="42" rx="7" class="viz-green"></rect><text x="314" y="129" class="viz-label">1</text>
+          <rect x="400" y="102" width="70" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect>
+          <rect x="515" y="102" width="70" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect>
+
+          <text x="55" y="186" class="viz-label">Ruộng B</text>
+          <rect x="170" y="162" width="70" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect>
+          <rect x="285" y="162" width="70" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect>
+          <rect x="400" y="162" width="70" height="42" rx="7" class="viz-green"></rect><text x="429" y="189" class="viz-label">1</text>
+          <rect x="515" y="162" width="70" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect>
+
+          <text x="55" y="246" class="viz-label">Ruộng C</text>
+          <rect x="170" y="222" width="70" height="42" rx="7" class="viz-green"></rect><text x="199" y="249" class="viz-label">1</text>
+          <rect x="285" y="222" width="70" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect>
+          <rect x="400" y="222" width="70" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect>
+          <rect x="515" y="222" width="70" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect>
+
+          <text x="55" y="316" class="viz-label">y[t]</text>
+          <rect x="170" y="292" width="70" height="42" rx="7" class="viz-orange"></rect><text x="199" y="319" class="viz-label">1</text>
+          <rect x="285" y="292" width="70" height="42" rx="7" class="viz-orange"></rect><text x="314" y="319" class="viz-label">1</text>
+          <rect x="400" y="292" width="70" height="42" rx="7" class="viz-orange"></rect><text x="429" y="319" class="viz-label">1</text>
+          <rect x="515" y="292" width="70" height="42" rx="7" fill="#f4efe6" stroke="#d8d1c6"></rect><text x="544" y="319" class="viz-label">0</text>
+
+          <rect x="665" y="76" width="390" height="255" rx="12" class="viz-blue"></rect>
+          <text x="700" y="118" class="viz-title">Ràng buộc chính</text>
+          <text x="700" y="158" class="viz-label">Mỗi hàng: sum_t x[i,t] <= 1</text>
+          <text x="700" y="198" class="viz-label">Mỗi cột: load[t] = sum_i d_i x[i,t]</text>
+          <text x="700" y="238" class="viz-label">m*y[t] <= load[t] <= M*y[t]</text>
+          <text x="700" y="278" class="viz-label">Objective: maximize sum d_i x[i,t]</text>
+        </svg>
+      </div>
+      <div class="footer"><span>Slide</span><span>Solver model simulation</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">CP-SAT</div>
+      <h2>Tổng quan phương pháp Constraint Programming</h2>
+      <div class="concept">
+        <p><strong>Constraint Programming</strong> tập trung vào việc mô tả các ràng buộc và để solver tìm cách thỏa mãn chúng. CP-SAT đặc biệt mạnh với biến Boolean và bài toán tổ hợp.</p>
+      </div>
+      <p>Nếu MIP nhìn bài toán qua lăng kính tối ưu tuyến tính và biến nguyên, thì CP-SAT nhìn bài toán như một mạng ràng buộc logic: ruộng này chọn ngày nào, ngày nào mở, tải ngày có nằm trong giới hạn không.</p>
+      <div class="footer"><span>Slide 20</span><span>CP intro</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">CP-SAT</div>
+      <h2>Constraint Programming</h2>
+      <p>CP dùng OR-Tools CP-SAT với mô hình Boolean gần giống MIP, nhưng solver dựa trên SAT search, propagation và parallel search.</p>
+      <ul>
+        <li><code>x[i,t]</code> là Boolean cho quyết định gán ruộng vào ngày.</li>
+        <li><code>y[t]</code> là Boolean cho quyết định mở ngày.</li>
+        <li>Ràng buộc tải ngày vẫn là <code>m*y[t] <= load[t] <= M*y[t]</code>.</li>
+        <li>Siêu tham số quan trọng: <code>CP_MAX_TIME_SECONDS</code>, <code>CP_NUM_SEARCH_WORKERS</code>, mật độ <code>candidate_days</code>.</li>
+      </ul>
+      <div class="footer"><span>Slide 21</span><span>CP-SAT</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Experiments</div>
+      <h2>Thiết kế thực nghiệm</h2>
+      <div class="grid-3">
+        <div class="panel">
+          <h3>Scoring</h3>
+          <p class="metric">100</p>
+          <p>điểm cho mỗi test nếu nghiệm hợp lệ và giá trị không thấp hơn reference.</p>
+        </div>
+        <div class="panel">
+          <h3>Test set</h3>
+          <p class="metric">5</p>
+          <p>bộ test trong thư mục <code>tests/</code>.</p>
+        </div>
+        <div class="panel">
+          <h3>Output</h3>
+          <p class="metric">report.md</p>
+          <p>tổng hợp thuật toán, hiệu chỉnh, siêu tham số, điểm và thời gian.</p>
+        </div>
+      </div>
+      <div class="footer"><span>Slide 22</span><span>Evaluation design</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Results</div>
+      <h2>Greedy: ảnh hưởng siêu tham số</h2>
+      <p class="param-note"><strong>Ý nghĩa siêu tham số:</strong> <code>ordering rule</code> là quy tắc sắp xếp ruộng trước khi greedy gán; quy tắc này quyết định ruộng nào được ưu tiên xử lý trước. <code>repair/fill rounds</code> là số lần lặp hai bước hậu xử lý sau khi gán greedy: <code>repair</code> sửa các ngày yếu có tải dương nhưng nhỏ hơn <code>m</code>, còn <code>fill</code> nhét thêm ruộng vào ngày đang hoạt động hoặc mở ngày mới nếu gom đủ tải.</p>
+      <table class="compact-table">
+        <thead>
+          <tr><th>Ordering rule</th><th>Repair/fill rounds</th><th>Điểm</th><th>Thời gian (s)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>cửa sổ ngắn -> deadline sớm -> sản lượng lớn</td><td>1</td><td>500</td><td>0.139</td></tr>
+          <tr><td>cửa sổ ngắn -> deadline sớm -> sản lượng lớn</td><td>2</td><td>500</td><td>0.140</td></tr>
+          <tr><td>cửa sổ ngắn -> deadline sớm -> sản lượng lớn</td><td>4</td><td>500</td><td>0.163</td></tr>
+          <tr><td>deadline sớm -> cửa sổ ngắn</td><td>1</td><td>500</td><td>0.157</td></tr>
+          <tr><td>deadline sớm -> cửa sổ ngắn</td><td>2</td><td>500</td><td>0.140</td></tr>
+          <tr><td>deadline sớm -> cửa sổ ngắn</td><td>4</td><td>500</td><td>0.160</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Cấu hình ưu tiên sản lượng trước đã bị loại khỏi bảng vì chạy rất chậm và không ổn định trên các test lớn.</p>
+      <div class="footer"><span>Slide 23</span><span>Greedy results</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Results</div>
+      <h2>Local Search: kết quả chính</h2>
+      <p class="param-note"><strong>Ý nghĩa siêu tham số:</strong> <code>move</code> là loại phép biến đổi nghiệm: insert thêm ruộng chưa chọn, relocate đổi ngày ruộng đã chọn, swap hoán đổi hai ruộng, replace thay ruộng nhỏ bằng ruộng lớn, group chuyển một nhóm ruộng giữa hai ngày. <code>rounds</code> là số vòng lặp local search. <code>top unassigned</code> là số ruộng chưa chọn được xét. <code>top assigned</code> là số ruộng đã chọn được xét. <code>group days</code> là số ngày nguồn/đích được xét khi chuyển nhóm. <code>group size</code> là số ruộng tối đa trong một nhóm chuyển.</p>
+      <table class="compact-table">
+        <thead>
+          <tr><th>Thuật toán</th><th>Hiệu chỉnh và siêu tham số</th><th>Điểm</th><th>Thời gian (s)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>local_search</td><td>insert-only, rounds = 2</td><td>500</td><td>0.168</td></tr>
+          <tr><td>local_search</td><td>insert-only, rounds = 5</td><td>500</td><td>0.171</td></tr>
+          <tr><td>local_search</td><td>insert-only, rounds = 8</td><td>500</td><td>0.167</td></tr>
+          <tr><td>local_search_variants</td><td>move = insert, rounds = 3, top unassigned = 300</td><td>500</td><td>0.166</td></tr>
+          <tr><td>local_search_variants</td><td>move = insert, rounds = 6, top unassigned = 800</td><td>500</td><td>0.168</td></tr>
+          <tr><td>local_search_variants</td><td>move = relocate, rounds = 3, top assigned = 300</td><td>500</td><td>0.194</td></tr>
+          <tr><td>local_search_variants</td><td>move = relocate, rounds = 6, top assigned = 800</td><td>500</td><td>0.213</td></tr>
+          <tr><td>local_search_variants</td><td>move = swap, rounds = 2, top assigned = 200</td><td>500</td><td>0.208</td></tr>
+          <tr><td>local_search_variants</td><td>move = swap, rounds = 3, top assigned = 400</td><td>500</td><td>0.222</td></tr>
+          <tr><td>local_search_variants</td><td>move = replace, rounds = 3, top unassigned = 300, top assigned = 300</td><td>500</td><td>0.171</td></tr>
+          <tr><td>local_search_variants</td><td>move = replace, rounds = 6, top unassigned = 800, top assigned = 800</td><td>500</td><td>0.169</td></tr>
+          <tr><td>local_search_variants</td><td>move = group, rounds = 2, group days = 60, group size = 2</td><td>500</td><td>0.190</td></tr>
+          <tr><td>local_search_variants</td><td>move = group, rounds = 3, group days = 120, group size = 4</td><td>500</td><td>0.196</td></tr>
+          <tr><td>local_search_variants</td><td>move = all, rounds = 3, top unassigned = 500, top assigned = 300, group days = 80, group size = 3</td><td>500</td><td>0.312</td></tr>
+          <tr><td>local_search_variants</td><td>move = all, rounds = 5, top unassigned = 800, top assigned = 500, group days = 120, group size = 4</td><td>500</td><td>0.417</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Các move mở rộng làm thuật toán linh hoạt hơn, nhưng trên bộ test hiện tại chưa cải thiện điểm so với greedy.</p>
+      <div class="footer"><span>Slide 24</span><span>Local search results</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Results</div>
+      <h2>Dynamic Programming: kết quả</h2>
+      <p class="param-note"><strong>Ý nghĩa siêu tham số:</strong> <code>DP_CANDIDATE_LIMIT</code> là số ruộng chưa chọn được đưa vào knapsack cục bộ của bản DP cải biên; <code>DP_TRAD_MAX_CANDIDATES</code> là số ruộng tối đa xét cho mỗi ngày trong DP truyền thống; <code>DP_TRAD_PASSES</code> là số lượt duyệt toàn bộ các ngày để mở ngày và lấp thêm nghiệm.</p>
+      <table>
+        <thead>
+          <tr><th>Thuật toán</th><th>Siêu tham số</th><th>Điểm</th><th>Thời gian (s)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>DP local knapsack</td><td>candidate limit = 80</td><td>500</td><td>0.250</td></tr>
+          <tr><td>DP local knapsack</td><td>candidate limit = 160</td><td>500</td><td>0.246</td></tr>
+          <tr><td>DP local knapsack</td><td>candidate limit = 320</td><td>500</td><td>0.238</td></tr>
+          <tr><td>DP traditional</td><td>candidates = 80, passes = 1</td><td>500</td><td>1.889</td></tr>
+          <tr><td>DP traditional</td><td>candidates = 160, passes = 2</td><td>500</td><td>2.187</td></tr>
+          <tr><td>DP traditional</td><td>candidates = 320, passes = 2</td><td>500</td><td>2.103</td></tr>
+        </tbody>
+      </table>
+      <div class="footer"><span>Slide 25</span><span>DP results</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Results</div>
+      <h2>MIP và CP: trade-off thời gian</h2>
+      <div class="grid">
+        <div class="panel">
+          <h3>MIP</h3>
+          <table>
+            <thead><tr><th>Time limit</th><th>Điểm</th><th>Time</th></tr></thead>
+            <tbody>
+              <tr><td>3000 ms</td><td>300</td><td>14.601</td></tr>
+              <tr><td>8000 ms</td><td>400</td><td>26.348</td></tr>
+              <tr><td>15000 ms</td><td class="good">500</td><td>37.223</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <h3>CP-SAT</h3>
+          <table>
+            <thead><tr><th>Time limit</th><th>Điểm</th><th>Time</th></tr></thead>
+            <tbody>
+              <tr><td>3000 ms</td><td>300</td><td>11.935</td></tr>
+              <tr><td>8000 ms</td><td>400</td><td>17.873</td></tr>
+              <tr><td>15000 ms</td><td class="good">500</td><td>29.697</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="note">Solver-based methods cần time limit đủ lớn để đạt điểm cao, nhưng chi phí chạy lớn hơn nhiều so với heuristic.</p>
+      <div class="footer"><span>Slide 26</span><span>MIP/CP results</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Comparison</div>
+      <h2>So sánh tổng quan</h2>
+      <table>
+        <thead>
+          <tr><th>Nhóm phương pháp</th><th>Điểm mạnh</th><th>Hạn chế</th><th>Phù hợp khi</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Greedy</td><td>Rất nhanh, đơn giản, ổn định</td><td>Không đảm bảo tối ưu</td><td>Cần nghiệm tốt nhanh</td></tr>
+          <tr><td>Local Search</td><td>Có thể sửa nghiệm greedy</td><td>Move rộng hơn làm tăng thời gian</td><td>Cần cải thiện heuristic</td></tr>
+          <tr><td>DP</td><td>Khai thác knapsack theo ngày</td><td>Vẫn là heuristic theo ngày</td><td>Cần lấp capacity hiệu quả</td></tr>
+          <tr><td>MIP/CP</td><td>Mô hình toán học rõ ràng</td><td>Chậm, phụ thuộc time limit</td><td>Cần mô hình chặt chẽ hơn</td></tr>
+        </tbody>
+      </table>
+      <div class="footer"><span>Slide 27</span><span>Comparison</span></div>
+    </section>
+
+    <section class="slide">
+      <div class="kicker">Conclusion</div>
+      <h2>Kết luận</h2>
+      <ul>
+        <li>Greedy là baseline mạnh nhất về tốc độ và đạt điểm rất tốt trên bộ test hiện tại.</li>
+        <li>Local search variants mở rộng không gian tìm kiếm, hữu ích cho test khó hơn dù hiện chưa tăng điểm.</li>
+        <li>DP theo knapsack là hướng thực dụng để lấp capacity còn trống.</li>
+        <li>MIP và CP biểu diễn bài toán chặt chẽ, nhưng cần time limit cao để đạt điểm tối đa.</li>
+      </ul>
+      <div class="footer"><span>Slide 28</span><span>Conclusion</span></div>
+    </section>
+  </main>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    slides.forEach((slide, i) => {
+      const footerNumber = slide.querySelector('.footer span:first-child');
+      if (footerNumber) footerNumber.textContent = `Slide ${i + 1}`;
+    });
+    let index = 0;
+
+    function show(next) {
+      index = Math.max(0, Math.min(slides.length - 1, next));
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      history.replaceState(null, '', `#${index + 1}`);
+    }
+
+    function fromHash() {
+      const n = parseInt(location.hash.replace('#', ''), 10);
+      if (!Number.isNaN(n)) show(n - 1);
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (['ArrowRight', 'PageDown', ' '].includes(event.key)) {
+        event.preventDefault();
+        show(index + 1);
+      } else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(event.key)) {
+        event.preventDefault();
+        show(index - 1);
+      } else if (event.key === 'Home') {
+        show(0);
+      } else if (event.key === 'End') {
+        show(slides.length - 1);
+      }
+    });
+
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+  </script>
+</body>
+</html>

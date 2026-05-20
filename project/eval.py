@@ -232,19 +232,20 @@ def build_param_experiments():
             }
         )
 
-    for rounds in [1, 2, 4]:
-        params = {
-            "GREEDY_REPAIR_FILL_ROUNDS": rounds,
-            "GREEDY_ORDER_MODE": "window_deadline_amount",
-        }
-        add(f"greedy-rounds-{rounds}", "greedy", "repair/fill rounds", "greedy/solution.py", params, params)
-
-    for mode in ["window_deadline_amount", "amount_window", "deadline_window"]:
-        params = {
-            "GREEDY_REPAIR_FILL_ROUNDS": 2,
-            "GREEDY_ORDER_MODE": mode,
-        }
-        add(f"greedy-order-{mode}", "greedy", "ordering rule", "greedy/solution.py", params, params)
+    for mode in ["window_deadline_amount", "deadline_window"]:
+        for rounds in [1, 2, 4]:
+            params = {
+                "GREEDY_REPAIR_FILL_ROUNDS": rounds,
+                "GREEDY_ORDER_MODE": mode,
+            }
+            add(
+                f"greedy-{mode}-r{rounds}",
+                "greedy",
+                "ordering rule + repair/fill rounds",
+                "greedy/solution.py",
+                params,
+                params,
+            )
 
     for rounds in [2, 5, 8]:
         params = {

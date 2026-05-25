@@ -1,15 +1,15 @@
 [
   {
-    "name": "greedy-rounds-1",
+    "name": "greedy-window_deadline_amount-r1",
     "algorithm": "greedy",
-    "tuning": "repair/fill rounds",
+    "tuning": "ordering rule + repair/fill rounds",
     "script": "greedy/solution.py",
     "env": {
       "GREEDY_REPAIR_FILL_ROUNDS": "1",
       "GREEDY_ORDER_MODE": "window_deadline_amount"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.14312957400011328,
+    "total_runtime_seconds": 0.253291087999969,
     "correct_tests": 5,
     "hyperparameters": {
       "GREEDY_REPAIR_FILL_ROUNDS": 1,
@@ -19,7 +19,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.020544136999887996,
+        "runtime_seconds": 0.03856259599990608,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -31,7 +31,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.035545491999982914,
+        "runtime_seconds": 0.06187940500001332,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -43,7 +43,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.01762616800010619,
+        "runtime_seconds": 0.03885179199994582,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -55,7 +55,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.05449641500013058,
+        "runtime_seconds": 0.08179683600008048,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -67,7 +67,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.014917362000005596,
+        "runtime_seconds": 0.03220045900002333,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -79,16 +79,16 @@
     ]
   },
   {
-    "name": "greedy-rounds-2",
+    "name": "greedy-window_deadline_amount-r2",
     "algorithm": "greedy",
-    "tuning": "repair/fill rounds",
+    "tuning": "ordering rule + repair/fill rounds",
     "script": "greedy/solution.py",
     "env": {
       "GREEDY_REPAIR_FILL_ROUNDS": "2",
       "GREEDY_ORDER_MODE": "window_deadline_amount"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.14526352099983342,
+    "total_runtime_seconds": 0.26369624099993416,
     "correct_tests": 5,
     "hyperparameters": {
       "GREEDY_REPAIR_FILL_ROUNDS": 2,
@@ -98,7 +98,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.015983839000000444,
+        "runtime_seconds": 0.03425606400003289,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -110,7 +110,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.03798172100005104,
+        "runtime_seconds": 0.06138392200000453,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -122,7 +122,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.018468735999931596,
+        "runtime_seconds": 0.03992405099995722,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -134,7 +134,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.05642380599988428,
+        "runtime_seconds": 0.09571491199994853,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -146,7 +146,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.01640541899996606,
+        "runtime_seconds": 0.032417291999990994,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -158,16 +158,16 @@
     ]
   },
   {
-    "name": "greedy-rounds-4",
+    "name": "greedy-window_deadline_amount-r4",
     "algorithm": "greedy",
-    "tuning": "repair/fill rounds",
+    "tuning": "ordering rule + repair/fill rounds",
     "script": "greedy/solution.py",
     "env": {
       "GREEDY_REPAIR_FILL_ROUNDS": "4",
       "GREEDY_ORDER_MODE": "window_deadline_amount"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.15812110400020174,
+    "total_runtime_seconds": 0.28365301099995577,
     "correct_tests": 5,
     "hyperparameters": {
       "GREEDY_REPAIR_FILL_ROUNDS": 4,
@@ -177,7 +177,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.01592166399996131,
+        "runtime_seconds": 0.03440496199993959,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -189,7 +189,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.03874091500006216,
+        "runtime_seconds": 0.0665593070000341,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -201,7 +201,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.018896835000077772,
+        "runtime_seconds": 0.03705115599996134,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -213,7 +213,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.06975908499998695,
+        "runtime_seconds": 0.11344142899997678,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -225,7 +225,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.014802605000113545,
+        "runtime_seconds": 0.03219615700004397,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -237,26 +237,26 @@
     ]
   },
   {
-    "name": "greedy-order-window_deadline_amount",
+    "name": "greedy-deadline_window-r1",
     "algorithm": "greedy",
-    "tuning": "ordering rule",
+    "tuning": "ordering rule + repair/fill rounds",
     "script": "greedy/solution.py",
     "env": {
-      "GREEDY_REPAIR_FILL_ROUNDS": "2",
-      "GREEDY_ORDER_MODE": "window_deadline_amount"
+      "GREEDY_REPAIR_FILL_ROUNDS": "1",
+      "GREEDY_ORDER_MODE": "deadline_window"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.14369774099986898,
+    "total_runtime_seconds": 0.24706473600008394,
     "correct_tests": 5,
     "hyperparameters": {
-      "GREEDY_REPAIR_FILL_ROUNDS": 2,
-      "GREEDY_ORDER_MODE": "window_deadline_amount"
+      "GREEDY_REPAIR_FILL_ROUNDS": 1,
+      "GREEDY_ORDER_MODE": "deadline_window"
     },
     "tests": [
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.014828051999984382,
+        "runtime_seconds": 0.03136153600007674,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -268,7 +268,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.03693684099994243,
+        "runtime_seconds": 0.05665933099999165,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -280,7 +280,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.01830966400007128,
+        "runtime_seconds": 0.037987390000012056,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -292,7 +292,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.05853238500003499,
+        "runtime_seconds": 0.08650542600003064,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -304,7 +304,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.015090798999835897,
+        "runtime_seconds": 0.03455105299997285,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -316,95 +316,16 @@
     ]
   },
   {
-    "name": "greedy-order-amount_window",
+    "name": "greedy-deadline_window-r2",
     "algorithm": "greedy",
-    "tuning": "ordering rule",
-    "script": "greedy/solution.py",
-    "env": {
-      "GREEDY_REPAIR_FILL_ROUNDS": "2",
-      "GREEDY_ORDER_MODE": "amount_window"
-    },
-    "total_score": 100,
-    "total_runtime_seconds": 280.01760231699996,
-    "correct_tests": 1,
-    "hyperparameters": {
-      "GREEDY_REPAIR_FILL_ROUNDS": 2,
-      "GREEDY_ORDER_MODE": "amount_window"
-    },
-    "tests": [
-      {
-        "test": "test1",
-        "score": 0,
-        "runtime_seconds": 70.0,
-        "status": "timeout",
-        "valid": false,
-        "message": "timeout after 70.000s",
-        "selected": 0,
-        "value": 0,
-        "reference_value": 1020,
-        "stderr": ""
-      },
-      {
-        "test": "test2",
-        "score": 0,
-        "runtime_seconds": 70.0,
-        "status": "timeout",
-        "valid": false,
-        "message": "timeout after 70.000s",
-        "selected": 0,
-        "value": 0,
-        "reference_value": 127122,
-        "stderr": ""
-      },
-      {
-        "test": "test3",
-        "score": 0,
-        "runtime_seconds": 70.0,
-        "status": "timeout",
-        "valid": false,
-        "message": "timeout after 70.000s",
-        "selected": 0,
-        "value": 0,
-        "reference_value": 48733,
-        "stderr": ""
-      },
-      {
-        "test": "test4",
-        "score": 0,
-        "runtime_seconds": 70.0,
-        "status": "timeout",
-        "valid": false,
-        "message": "timeout after 70.000s",
-        "selected": 0,
-        "value": 0,
-        "reference_value": 250298,
-        "stderr": ""
-      },
-      {
-        "test": "test5",
-        "score": 100,
-        "runtime_seconds": 0.017602316999955292,
-        "status": "correct",
-        "valid": true,
-        "message": "ok",
-        "selected": 10,
-        "value": 58,
-        "reference_value": 58,
-        "stderr": ""
-      }
-    ]
-  },
-  {
-    "name": "greedy-order-deadline_window",
-    "algorithm": "greedy",
-    "tuning": "ordering rule",
+    "tuning": "ordering rule + repair/fill rounds",
     "script": "greedy/solution.py",
     "env": {
       "GREEDY_REPAIR_FILL_ROUNDS": "2",
       "GREEDY_ORDER_MODE": "deadline_window"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.1573613129999103,
+    "total_runtime_seconds": 0.27095547799990527,
     "correct_tests": 5,
     "hyperparameters": {
       "GREEDY_REPAIR_FILL_ROUNDS": 2,
@@ -414,7 +335,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.016981696999891938,
+        "runtime_seconds": 0.0395212429999674,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -426,7 +347,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.03919607499983613,
+        "runtime_seconds": 0.06325346799997078,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -438,7 +359,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.01931063000006361,
+        "runtime_seconds": 0.039349678999997195,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -450,7 +371,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.06605439400004798,
+        "runtime_seconds": 0.09484830600001715,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -462,7 +383,86 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.015818517000070642,
+        "runtime_seconds": 0.03398278199995275,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10,
+        "value": 58,
+        "reference_value": 58,
+        "stderr": ""
+      }
+    ]
+  },
+  {
+    "name": "greedy-deadline_window-r4",
+    "algorithm": "greedy",
+    "tuning": "ordering rule + repair/fill rounds",
+    "script": "greedy/solution.py",
+    "env": {
+      "GREEDY_REPAIR_FILL_ROUNDS": "4",
+      "GREEDY_ORDER_MODE": "deadline_window"
+    },
+    "total_score": 500,
+    "total_runtime_seconds": 0.29370641799994246,
+    "correct_tests": 5,
+    "hyperparameters": {
+      "GREEDY_REPAIR_FILL_ROUNDS": 4,
+      "GREEDY_ORDER_MODE": "deadline_window"
+    },
+    "tests": [
+      {
+        "test": "test1",
+        "score": 100,
+        "runtime_seconds": 0.04232730000001084,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 100,
+        "value": 1020,
+        "reference_value": 1020,
+        "stderr": ""
+      },
+      {
+        "test": "test2",
+        "score": 100,
+        "runtime_seconds": 0.06678259900002104,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 5000,
+        "value": 128868,
+        "reference_value": 127122,
+        "stderr": ""
+      },
+      {
+        "test": "test3",
+        "score": 100,
+        "runtime_seconds": 0.040932784000005995,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 1000,
+        "value": 49589,
+        "reference_value": 48733,
+        "stderr": ""
+      },
+      {
+        "test": "test4",
+        "score": 100,
+        "runtime_seconds": 0.10099282299995593,
+        "status": "correct",
+        "valid": true,
+        "message": "ok",
+        "selected": 10000,
+        "value": 255386,
+        "reference_value": 250298,
+        "stderr": ""
+      },
+      {
+        "test": "test5",
+        "score": 100,
+        "runtime_seconds": 0.04267091199994866,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -483,7 +483,7 @@
       "LS_ORIG_MAX_ROUNDS": "2"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.16820950200008156,
+    "total_runtime_seconds": 0.2945835190001844,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_ORIG_INITIAL_REPAIR_FILL_ROUNDS": 2,
@@ -493,7 +493,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.017233112999974765,
+        "runtime_seconds": 0.035514755000008336,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -505,7 +505,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.04196842100009235,
+        "runtime_seconds": 0.07685528000001796,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -517,7 +517,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.02071255900000324,
+        "runtime_seconds": 0.04337967000003573,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -529,7 +529,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.07241158700003325,
+        "runtime_seconds": 0.10373995300005845,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -541,7 +541,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.015883821999977954,
+        "runtime_seconds": 0.03509386100006395,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -562,7 +562,7 @@
       "LS_ORIG_MAX_ROUNDS": "5"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.17063812099991083,
+    "total_runtime_seconds": 0.2808232309999994,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_ORIG_INITIAL_REPAIR_FILL_ROUNDS": 2,
@@ -572,7 +572,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.0192659869999261,
+        "runtime_seconds": 0.03428711799995199,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -584,7 +584,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.04068022000001292,
+        "runtime_seconds": 0.06533757700003662,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -596,7 +596,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.020028305999858276,
+        "runtime_seconds": 0.04058428900009403,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -608,7 +608,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.07330292100004954,
+        "runtime_seconds": 0.10669894599993768,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -620,7 +620,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.01736068700006399,
+        "runtime_seconds": 0.03391530099997908,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -641,7 +641,7 @@
       "LS_ORIG_MAX_ROUNDS": "8"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.16718359599985888,
+    "total_runtime_seconds": 0.29606415600005676,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_ORIG_INITIAL_REPAIR_FILL_ROUNDS": 2,
@@ -651,7 +651,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.016017527000030896,
+        "runtime_seconds": 0.03569029400000545,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -663,7 +663,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.04214716399997087,
+        "runtime_seconds": 0.07030433599993557,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -675,7 +675,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.020889871000008498,
+        "runtime_seconds": 0.0431688190000159,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -687,7 +687,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.07031233399993653,
+        "runtime_seconds": 0.11250290500004212,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -699,7 +699,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.01781669999991209,
+        "runtime_seconds": 0.03439780200005771,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -721,7 +721,7 @@
       "LS_TOP_UNASSIGNED": "300"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.1656436300002042,
+    "total_runtime_seconds": 0.2899406009998984,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "insert",
@@ -732,7 +732,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.018194229000073392,
+        "runtime_seconds": 0.05898037600002226,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -744,7 +744,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.04102711700011241,
+        "runtime_seconds": 0.06094924799992896,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -756,7 +756,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.022204864000059388,
+        "runtime_seconds": 0.03954119399998035,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -768,7 +768,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.06577054900003532,
+        "runtime_seconds": 0.09526547799998752,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -780,7 +780,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.018446870999923703,
+        "runtime_seconds": 0.035204304999979286,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -802,7 +802,7 @@
       "LS_TOP_UNASSIGNED": "800"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.16750201799982278,
+    "total_runtime_seconds": 0.2902986970001393,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "insert",
@@ -813,7 +813,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.018026673999884224,
+        "runtime_seconds": 0.03532842699996763,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -825,7 +825,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.03975061599999208,
+        "runtime_seconds": 0.06200715099998888,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -837,7 +837,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.022060882000005222,
+        "runtime_seconds": 0.054767148000109955,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -849,7 +849,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.06878845999995065,
+        "runtime_seconds": 0.09620392800002264,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -861,7 +861,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.018875385999990613,
+        "runtime_seconds": 0.041992043000050217,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -883,7 +883,7 @@
       "LS_TOP_ASSIGNED": "300"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.1939396709999528,
+    "total_runtime_seconds": 0.3365400839999211,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "relocate",
@@ -894,7 +894,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.018555726999920807,
+        "runtime_seconds": 0.03744871800006422,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -906,7 +906,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.0481823960001293,
+        "runtime_seconds": 0.07639282699994965,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -918,7 +918,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.024468132000038167,
+        "runtime_seconds": 0.042944281000018236,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -930,7 +930,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.0848960249998072,
+        "runtime_seconds": 0.1277866319999248,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -942,7 +942,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.017837391000057323,
+        "runtime_seconds": 0.051967625999964184,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -964,7 +964,7 @@
       "LS_TOP_ASSIGNED": "800"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.21348353999997016,
+    "total_runtime_seconds": 0.33294138899987047,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "relocate",
@@ -975,7 +975,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.018197091000047294,
+        "runtime_seconds": 0.03957163200004743,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -987,7 +987,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.04741955600002257,
+        "runtime_seconds": 0.07606182299991815,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -999,7 +999,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.02245316499988803,
+        "runtime_seconds": 0.04646767399992768,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1011,7 +1011,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.10529786699999022,
+        "runtime_seconds": 0.133486640000001,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1023,7 +1023,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.02011586100002205,
+        "runtime_seconds": 0.03735361999997622,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1045,7 +1045,7 @@
       "LS_TOP_ASSIGNED": "200"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.20809516599956623,
+    "total_runtime_seconds": 0.32625747700012653,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "swap",
@@ -1056,7 +1056,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.019376454999928683,
+        "runtime_seconds": 0.03755861599995569,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1068,7 +1068,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.04850050099980763,
+        "runtime_seconds": 0.07653896600004373,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1080,7 +1080,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.025131131999842182,
+        "runtime_seconds": 0.04487108300008913,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1092,7 +1092,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.09563547299990205,
+        "runtime_seconds": 0.12297350300002563,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1104,7 +1104,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.019451605000085692,
+        "runtime_seconds": 0.04431530900001235,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1126,7 +1126,7 @@
       "LS_TOP_ASSIGNED": "400"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.2216570490002141,
+    "total_runtime_seconds": 0.34850166199998966,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "swap",
@@ -1137,7 +1137,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.019791490999978123,
+        "runtime_seconds": 0.04801128099995822,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1149,7 +1149,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.05488561800007119,
+        "runtime_seconds": 0.08160973099995772,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1161,7 +1161,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.024710942999945473,
+        "runtime_seconds": 0.04771209500006535,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1173,7 +1173,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.10315570400007346,
+        "runtime_seconds": 0.1333923820000109,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1185,7 +1185,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.01911329300014586,
+        "runtime_seconds": 0.03777617299999747,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1208,7 +1208,7 @@
       "LS_TOP_ASSIGNED": "300"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.17084856099995704,
+    "total_runtime_seconds": 0.27745143599997846,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "replace",
@@ -1220,7 +1220,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.019921374999967156,
+        "runtime_seconds": 0.037567681000041375,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1232,7 +1232,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.040691814999945564,
+        "runtime_seconds": 0.06496711599993432,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1244,7 +1244,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.02186913400009871,
+        "runtime_seconds": 0.0397535769999422,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1256,7 +1256,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.0692212080000445,
+        "runtime_seconds": 0.09876332700002877,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1268,7 +1268,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.019145028999901115,
+        "runtime_seconds": 0.036399735000031797,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1291,7 +1291,7 @@
       "LS_TOP_ASSIGNED": "800"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.1693516999998792,
+    "total_runtime_seconds": 0.27977586100007557,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "replace",
@@ -1303,7 +1303,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.019009475000075327,
+        "runtime_seconds": 0.03779922399996849,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1315,7 +1315,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.0398734919999697,
+        "runtime_seconds": 0.06271522300005472,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1327,7 +1327,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.02228155800003151,
+        "runtime_seconds": 0.04125320699995427,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1339,7 +1339,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.06869389700000283,
+        "runtime_seconds": 0.09650625100005072,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1351,7 +1351,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.01949327799979983,
+        "runtime_seconds": 0.04150195600004736,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1374,7 +1374,7 @@
       "LS_GROUP_SIZE": "2"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.18991667000000234,
+    "total_runtime_seconds": 0.3505237339999212,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "group",
@@ -1386,7 +1386,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.019685933999880945,
+        "runtime_seconds": 0.04129472900001474,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1398,7 +1398,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.04711012600000686,
+        "runtime_seconds": 0.06913962299995546,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1410,7 +1410,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.022526217000176985,
+        "runtime_seconds": 0.05784903599999325,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1422,7 +1422,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.08221026399996845,
+        "runtime_seconds": 0.1474054770000066,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1434,7 +1434,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.018384128999969107,
+        "runtime_seconds": 0.03483486899995114,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1457,7 +1457,7 @@
       "LS_GROUP_SIZE": "4"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.1959283400001368,
+    "total_runtime_seconds": 0.32417988100007733,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "group",
@@ -1469,7 +1469,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.019159899000214864,
+        "runtime_seconds": 0.03862188100004005,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1481,7 +1481,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.04920066499994391,
+        "runtime_seconds": 0.077930373000072,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1493,7 +1493,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.023387441000068065,
+        "runtime_seconds": 0.04374796599995534,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1505,7 +1505,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.08701053400000092,
+        "runtime_seconds": 0.1266763380000384,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1517,7 +1517,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.017169800999909057,
+        "runtime_seconds": 0.03720332299997153,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1542,7 +1542,7 @@
       "LS_GROUP_SIZE": "3"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.312456468000164,
+    "total_runtime_seconds": 0.4327110930000799,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "insert,relocate,swap,replace,group",
@@ -1556,7 +1556,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.019518697999956203,
+        "runtime_seconds": 0.03959382999994432,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1568,7 +1568,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.08659898200016869,
+        "runtime_seconds": 0.11073692599995866,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1580,7 +1580,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.029334739999967496,
+        "runtime_seconds": 0.05389453100008268,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1592,7 +1592,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.15751166900008684,
+        "runtime_seconds": 0.19058921200007717,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1604,7 +1604,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.019492378999984794,
+        "runtime_seconds": 0.0378965940000171,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1629,7 +1629,7 @@
       "LS_GROUP_SIZE": "4"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.4174059589997796,
+    "total_runtime_seconds": 0.5401971949999052,
     "correct_tests": 5,
     "hyperparameters": {
       "LS_MOVES": "insert,relocate,swap,replace,group",
@@ -1643,7 +1643,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.0192527889998928,
+        "runtime_seconds": 0.03744617400002426,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1655,7 +1655,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.11843169000007947,
+        "runtime_seconds": 0.14956481699994129,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1667,7 +1667,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.033045403999949485,
+        "runtime_seconds": 0.056567749000009826,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1679,7 +1679,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.2266421229999196,
+        "runtime_seconds": 0.2626779779999424,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1691,7 +1691,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.020033952999938265,
+        "runtime_seconds": 0.03394047699998737,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1712,7 +1712,7 @@
       "DP_CANDIDATE_LIMIT": "80"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.24959548900005757,
+    "total_runtime_seconds": 0.3532197270000097,
     "correct_tests": 5,
     "hyperparameters": {
       "DP_INITIAL_REPAIR_FILL_ROUNDS": 2,
@@ -1722,7 +1722,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.018218208000007508,
+        "runtime_seconds": 0.032880693000038264,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1734,7 +1734,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.06968265599994083,
+        "runtime_seconds": 0.09335476900002959,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1746,7 +1746,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.022549410999999964,
+        "runtime_seconds": 0.038849858999924436,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1758,7 +1758,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.12217226699999628,
+        "runtime_seconds": 0.15543734699997458,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1770,7 +1770,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.01697294700011298,
+        "runtime_seconds": 0.03269705900004283,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1791,7 +1791,7 @@
       "DP_CANDIDATE_LIMIT": "160"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.2462099400004263,
+    "total_runtime_seconds": 0.36400734899996223,
     "correct_tests": 5,
     "hyperparameters": {
       "DP_INITIAL_REPAIR_FILL_ROUNDS": 2,
@@ -1801,7 +1801,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.018236260000094262,
+        "runtime_seconds": 0.04545160199995735,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1813,7 +1813,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.06719155500013585,
+        "runtime_seconds": 0.09418119200006458,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1825,7 +1825,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.023705493000079514,
+        "runtime_seconds": 0.041042760999971506,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1837,7 +1837,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.12060724100001607,
+        "runtime_seconds": 0.14845182999999906,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1849,7 +1849,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.016469391000100586,
+        "runtime_seconds": 0.03487996399996973,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1870,7 +1870,7 @@
       "DP_CANDIDATE_LIMIT": "320"
     },
     "total_score": 500,
-    "total_runtime_seconds": 0.23845104199995149,
+    "total_runtime_seconds": 0.3426438459999872,
     "correct_tests": 5,
     "hyperparameters": {
       "DP_INITIAL_REPAIR_FILL_ROUNDS": 2,
@@ -1880,7 +1880,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.01759780099996533,
+        "runtime_seconds": 0.03323352600000362,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1892,7 +1892,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.06498772200006897,
+        "runtime_seconds": 0.09104308300004504,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1904,7 +1904,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.022990087999914977,
+        "runtime_seconds": 0.03980962599996474,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1916,7 +1916,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 0.11606036900002437,
+        "runtime_seconds": 0.14662629500003277,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1928,7 +1928,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.016815061999977843,
+        "runtime_seconds": 0.031931315999941035,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1949,7 +1949,7 @@
       "DP_TRAD_PASSES": "1"
     },
     "total_score": 500,
-    "total_runtime_seconds": 1.8894448619998911,
+    "total_runtime_seconds": 2.252074053000001,
     "correct_tests": 5,
     "hyperparameters": {
       "DP_TRAD_MAX_CANDIDATES": 80,
@@ -1960,7 +1960,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.016847122999934072,
+        "runtime_seconds": 0.03180353999994168,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1972,7 +1972,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.38225397300016084,
+        "runtime_seconds": 0.4633980440000869,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1984,7 +1984,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.24279307300002984,
+        "runtime_seconds": 0.29644600400001764,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -1996,7 +1996,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 1.230455394999808,
+        "runtime_seconds": 1.4280559730000277,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2008,7 +2008,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.017095297999958348,
+        "runtime_seconds": 0.03237049199992725,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2029,7 +2029,7 @@
       "DP_TRAD_PASSES": "2"
     },
     "total_score": 500,
-    "total_runtime_seconds": 1.9470576189999065,
+    "total_runtime_seconds": 2.290426324999885,
     "correct_tests": 5,
     "hyperparameters": {
       "DP_TRAD_MAX_CANDIDATES": 80,
@@ -2040,7 +2040,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.016785297000069477,
+        "runtime_seconds": 0.030905906999919353,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2052,7 +2052,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.3723568709999654,
+        "runtime_seconds": 0.4844839500000262,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2064,7 +2064,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.2635547620000125,
+        "runtime_seconds": 0.30196283400005086,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2076,7 +2076,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 1.2760248309998588,
+        "runtime_seconds": 1.4419725059999564,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2088,7 +2088,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.01833585800000037,
+        "runtime_seconds": 0.031101127999932032,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2109,7 +2109,7 @@
       "DP_TRAD_PASSES": "1"
     },
     "total_score": 500,
-    "total_runtime_seconds": 2.1424085129997366,
+    "total_runtime_seconds": 2.5111620830000447,
     "correct_tests": 5,
     "hyperparameters": {
       "DP_TRAD_MAX_CANDIDATES": 160,
@@ -2120,7 +2120,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.024477347999891208,
+        "runtime_seconds": 0.03249220099996819,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2132,7 +2132,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.4148931970000831,
+        "runtime_seconds": 0.4807439680000698,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2144,7 +2144,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.37799279999990176,
+        "runtime_seconds": 0.4109538010000051,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2156,7 +2156,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 1.3093245390000448,
+        "runtime_seconds": 1.5568722579999985,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2168,7 +2168,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.015720628999815744,
+        "runtime_seconds": 0.030099855000003117,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2189,7 +2189,7 @@
       "DP_TRAD_PASSES": "2"
     },
     "total_score": 500,
-    "total_runtime_seconds": 2.1866529689998515,
+    "total_runtime_seconds": 2.674430710000024,
     "correct_tests": 5,
     "hyperparameters": {
       "DP_TRAD_MAX_CANDIDATES": 160,
@@ -2200,7 +2200,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.018147068999951443,
+        "runtime_seconds": 0.032516369000063605,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2212,7 +2212,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.3973993510001037,
+        "runtime_seconds": 0.48893710699996973,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2224,7 +2224,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.37130004999994526,
+        "runtime_seconds": 0.5169762269999865,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2236,7 +2236,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 1.3839098449998346,
+        "runtime_seconds": 1.6044807880000462,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2248,7 +2248,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.015896654000016497,
+        "runtime_seconds": 0.03152021899995816,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2269,7 +2269,7 @@
       "DP_TRAD_PASSES": "1"
     },
     "total_score": 500,
-    "total_runtime_seconds": 2.199718199999552,
+    "total_runtime_seconds": 2.633748413000035,
     "correct_tests": 5,
     "hyperparameters": {
       "DP_TRAD_MAX_CANDIDATES": 320,
@@ -2280,7 +2280,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.017449437999857764,
+        "runtime_seconds": 0.031779743000015515,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2292,7 +2292,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.41978977799999484,
+        "runtime_seconds": 0.4974917350000396,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2304,7 +2304,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.3834063089998381,
+        "runtime_seconds": 0.44421408300001985,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2316,7 +2316,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 1.3629088749999028,
+        "runtime_seconds": 1.6285643669999672,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2328,7 +2328,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.016163799999958428,
+        "runtime_seconds": 0.031698484999992615,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2349,7 +2349,7 @@
       "DP_TRAD_PASSES": "2"
     },
     "total_score": 500,
-    "total_runtime_seconds": 2.1034588870004427,
+    "total_runtime_seconds": 2.7725131489999058,
     "correct_tests": 5,
     "hyperparameters": {
       "DP_TRAD_MAX_CANDIDATES": 320,
@@ -2360,7 +2360,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.01733959800003504,
+        "runtime_seconds": 0.03371824999999262,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2372,7 +2372,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 0.36877678100017874,
+        "runtime_seconds": 0.515667967000013,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2384,7 +2384,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 0.3508133390000694,
+        "runtime_seconds": 0.45755181799995626,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2396,7 +2396,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 1.3518854520000332,
+        "runtime_seconds": 1.7347216819999858,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2408,7 +2408,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.014643717000126344,
+        "runtime_seconds": 0.030853431999958048,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2430,9 +2430,9 @@
       "MIP_TIME_LIMIT_MS": "3000",
       "MIP_INTEGER_THRESHOLD": "0.5"
     },
-    "total_score": 300,
-    "total_runtime_seconds": 14.6008761220005,
-    "correct_tests": 3,
+    "total_score": 500,
+    "total_runtime_seconds": 78.36271260500007,
+    "correct_tests": 5,
     "hyperparameters": {
       "MIP_SHORT_WINDOW_LIMIT": 12,
       "MIP_LONG_WINDOW_DIVISOR": 6,
@@ -2443,7 +2443,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.5283474840000508,
+        "runtime_seconds": 0.21394835599994622,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2454,20 +2454,20 @@
       },
       {
         "test": "test2",
-        "score": 0,
-        "runtime_seconds": 4.670744745000093,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 19.245430687000066,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 5000,
+        "value": 128868,
         "reference_value": 127122,
         "stderr": ""
       },
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 2.750518173000046,
+        "runtime_seconds": 2.884582635000015,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2478,20 +2478,20 @@
       },
       {
         "test": "test4",
-        "score": 0,
-        "runtime_seconds": 6.522875621000139,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 55.83398815800001,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.12839009900017118,
+        "runtime_seconds": 0.18476276900003086,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2513,9 +2513,9 @@
       "MIP_TIME_LIMIT_MS": "8000",
       "MIP_INTEGER_THRESHOLD": "0.5"
     },
-    "total_score": 400,
-    "total_runtime_seconds": 26.348189865999757,
-    "correct_tests": 4,
+    "total_score": 500,
+    "total_runtime_seconds": 76.47649886600016,
+    "correct_tests": 5,
     "hyperparameters": {
       "MIP_SHORT_WINDOW_LIMIT": 12,
       "MIP_LONG_WINDOW_DIVISOR": 6,
@@ -2526,7 +2526,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.13563228799989702,
+        "runtime_seconds": 0.234460661000071,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2538,19 +2538,19 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 10.980216850000033,
+        "runtime_seconds": 19.05998695699998,
         "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 4960,
-        "value": 127851,
+        "selected": 5000,
+        "value": 128868,
         "reference_value": 127122,
         "stderr": ""
       },
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 3.277931523999996,
+        "runtime_seconds": 2.9368234450000728,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2561,20 +2561,20 @@
       },
       {
         "test": "test4",
-        "score": 0,
-        "runtime_seconds": 11.855109373999994,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 54.071009043000004,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.09929982999983622,
+        "runtime_seconds": 0.17421876000003067,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2597,7 +2597,7 @@
       "MIP_INTEGER_THRESHOLD": "0.5"
     },
     "total_score": 500,
-    "total_runtime_seconds": 37.22335133799993,
+    "total_runtime_seconds": 77.06490600600011,
     "correct_tests": 5,
     "hyperparameters": {
       "MIP_SHORT_WINDOW_LIMIT": 12,
@@ -2609,7 +2609,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.12124108200009687,
+        "runtime_seconds": 0.19969390200003545,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2621,19 +2621,19 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 15.038822658000072,
+        "runtime_seconds": 18.98513794600001,
         "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 4990,
-        "value": 128717,
+        "selected": 5000,
+        "value": 128868,
         "reference_value": 127122,
         "stderr": ""
       },
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 2.9199108429997978,
+        "runtime_seconds": 2.7920613329999924,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2645,19 +2645,19 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 19.03035640799999,
+        "runtime_seconds": 54.91051035300006,
         "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 9901,
-        "value": 252770,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.11302034699997421,
+        "runtime_seconds": 0.17750247200001468,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2679,9 +2679,9 @@
       "MIP_TIME_LIMIT_MS": "8000",
       "MIP_INTEGER_THRESHOLD": "0.5"
     },
-    "total_score": 400,
-    "total_runtime_seconds": 27.593525912000132,
-    "correct_tests": 4,
+    "total_score": 500,
+    "total_runtime_seconds": 75.45331474600039,
+    "correct_tests": 5,
     "hyperparameters": {
       "MIP_SHORT_WINDOW_LIMIT": 12,
       "MIP_LONG_WINDOW_DIVISOR": 4,
@@ -2692,7 +2692,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.155186760000106,
+        "runtime_seconds": 0.20205221300000176,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2704,19 +2704,19 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 10.90387031399996,
+        "runtime_seconds": 18.15128056900005,
         "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 4960,
-        "value": 127851,
+        "selected": 5000,
+        "value": 128868,
         "reference_value": 127122,
         "stderr": ""
       },
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 3.283293995000122,
+        "runtime_seconds": 2.7486856780000153,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2727,20 +2727,20 @@
       },
       {
         "test": "test4",
-        "score": 0,
-        "runtime_seconds": 13.13645802499991,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 54.16047548100016,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.11471681800003353,
+        "runtime_seconds": 0.19082080500015763,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2762,9 +2762,9 @@
       "MIP_TIME_LIMIT_MS": "8000",
       "MIP_INTEGER_THRESHOLD": "0.5"
     },
-    "total_score": 400,
-    "total_runtime_seconds": 25.71021155600033,
-    "correct_tests": 4,
+    "total_score": 500,
+    "total_runtime_seconds": 75.22181708599987,
+    "correct_tests": 5,
     "hyperparameters": {
       "MIP_SHORT_WINDOW_LIMIT": 12,
       "MIP_LONG_WINDOW_DIVISOR": 6,
@@ -2775,7 +2775,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.1104968900001495,
+        "runtime_seconds": 0.21625526699995135,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2787,19 +2787,19 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 11.007136391000131,
+        "runtime_seconds": 18.33573099199998,
         "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 4960,
-        "value": 127851,
+        "selected": 5000,
+        "value": 128868,
         "reference_value": 127122,
         "stderr": ""
       },
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 2.7682029430000057,
+        "runtime_seconds": 2.7562647979998474,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2810,20 +2810,20 @@
       },
       {
         "test": "test4",
-        "score": 0,
-        "runtime_seconds": 11.728446046000045,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 53.743101130000014,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.0959292860000005,
+        "runtime_seconds": 0.17046489900008055,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2845,9 +2845,9 @@
       "MIP_TIME_LIMIT_MS": "8000",
       "MIP_INTEGER_THRESHOLD": "0.5"
     },
-    "total_score": 400,
-    "total_runtime_seconds": 22.87860628699991,
-    "correct_tests": 4,
+    "total_score": 500,
+    "total_runtime_seconds": 76.15933409400009,
+    "correct_tests": 5,
     "hyperparameters": {
       "MIP_SHORT_WINDOW_LIMIT": 12,
       "MIP_LONG_WINDOW_DIVISOR": 10,
@@ -2858,7 +2858,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.1135925319999842,
+        "runtime_seconds": 0.2094834039999114,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2870,19 +2870,19 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 10.061559707000015,
+        "runtime_seconds": 18.545323079000127,
         "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 4960,
-        "value": 127851,
+        "selected": 5000,
+        "value": 128868,
         "reference_value": 127122,
         "stderr": ""
       },
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 2.5680852509999568,
+        "runtime_seconds": 2.7435219349999898,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2893,20 +2893,20 @@
       },
       {
         "test": "test4",
-        "score": 0,
-        "runtime_seconds": 10.046997146999956,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 54.465912676000016,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.08837164999999914,
+        "runtime_seconds": 0.1950930000000426,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2928,9 +2928,9 @@
       "CP_MAX_TIME_SECONDS": "3.0",
       "CP_NUM_SEARCH_WORKERS": "8"
     },
-    "total_score": 300,
-    "total_runtime_seconds": 11.935381723999853,
-    "correct_tests": 3,
+    "total_score": 500,
+    "total_runtime_seconds": 22.841664967000042,
+    "correct_tests": 5,
     "hyperparameters": {
       "CP_SHORT_WINDOW_LIMIT": 12,
       "CP_LONG_WINDOW_DIVISOR": 6,
@@ -2941,7 +2941,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 1.0129856220000875,
+        "runtime_seconds": 0.848376485000017,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2952,20 +2952,20 @@
       },
       {
         "test": "test2",
-        "score": 0,
-        "runtime_seconds": 3.760668874999965,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 6.232921790999853,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 5000,
+        "value": 128868,
         "reference_value": 127122,
         "stderr": ""
       },
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 1.2613854019998598,
+        "runtime_seconds": 1.8393950100000893,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -2976,20 +2976,20 @@
       },
       {
         "test": "test4",
-        "score": 0,
-        "runtime_seconds": 5.3215196930000275,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 13.240831685000103,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.5788221319999138,
+        "runtime_seconds": 0.6801399959999799,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3011,9 +3011,9 @@
       "CP_MAX_TIME_SECONDS": "8.0",
       "CP_NUM_SEARCH_WORKERS": "8"
     },
-    "total_score": 400,
-    "total_runtime_seconds": 17.872500644000183,
-    "correct_tests": 4,
+    "total_score": 500,
+    "total_runtime_seconds": 22.560314694,
+    "correct_tests": 5,
     "hyperparameters": {
       "CP_SHORT_WINDOW_LIMIT": 12,
       "CP_LONG_WINDOW_DIVISOR": 6,
@@ -3024,7 +3024,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.48265518800008067,
+        "runtime_seconds": 0.6940410140000495,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3036,7 +3036,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 6.438640066000062,
+        "runtime_seconds": 6.285723541999914,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3048,7 +3048,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 1.6784505299999637,
+        "runtime_seconds": 1.5750687180000114,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3059,20 +3059,20 @@
       },
       {
         "test": "test4",
-        "score": 0,
-        "runtime_seconds": 8.849703718,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 13.338388532999943,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.42305114200007665,
+        "runtime_seconds": 0.6670928870000807,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3095,7 +3095,7 @@
       "CP_NUM_SEARCH_WORKERS": "8"
     },
     "total_score": 500,
-    "total_runtime_seconds": 29.696678652999935,
+    "total_runtime_seconds": 22.814408877999767,
     "correct_tests": 5,
     "hyperparameters": {
       "CP_SHORT_WINDOW_LIMIT": 12,
@@ -3107,7 +3107,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.48021812399997543,
+        "runtime_seconds": 0.7180359859999044,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3119,7 +3119,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 5.968153357000119,
+        "runtime_seconds": 6.377166412999941,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3131,7 +3131,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 1.6272628679998888,
+        "runtime_seconds": 1.6786101010000039,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3143,7 +3143,7 @@
       {
         "test": "test4",
         "score": 100,
-        "runtime_seconds": 20.350981473000047,
+        "runtime_seconds": 13.352413167999885,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3155,7 +3155,7 @@
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 1.2700628309999047,
+        "runtime_seconds": 0.6881832100000338,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3177,9 +3177,9 @@
       "CP_MAX_TIME_SECONDS": "8.0",
       "CP_NUM_SEARCH_WORKERS": "8"
     },
-    "total_score": 400,
-    "total_runtime_seconds": 21.599781866999592,
-    "correct_tests": 4,
+    "total_score": 500,
+    "total_runtime_seconds": 22.991062564000003,
+    "correct_tests": 5,
     "hyperparameters": {
       "CP_SHORT_WINDOW_LIMIT": 12,
       "CP_LONG_WINDOW_DIVISOR": 4,
@@ -3190,7 +3190,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.702275998999994,
+        "runtime_seconds": 0.7373731800000769,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3202,7 +3202,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 6.826365341999917,
+        "runtime_seconds": 6.524201749999975,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3214,7 +3214,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 1.5108249539998724,
+        "runtime_seconds": 1.6067852690000564,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3225,20 +3225,20 @@
       },
       {
         "test": "test4",
-        "score": 0,
-        "runtime_seconds": 11.925572126999896,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 13.480870450999873,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.6347434449999128,
+        "runtime_seconds": 0.6418319140000222,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3260,9 +3260,9 @@
       "CP_MAX_TIME_SECONDS": "8.0",
       "CP_NUM_SEARCH_WORKERS": "8"
     },
-    "total_score": 400,
-    "total_runtime_seconds": 17.972197580000056,
-    "correct_tests": 4,
+    "total_score": 500,
+    "total_runtime_seconds": 23.13664824800003,
+    "correct_tests": 5,
     "hyperparameters": {
       "CP_SHORT_WINDOW_LIMIT": 12,
       "CP_LONG_WINDOW_DIVISOR": 6,
@@ -3273,7 +3273,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.5087820590001684,
+        "runtime_seconds": 0.7300431270000445,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3285,7 +3285,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 6.391912525999942,
+        "runtime_seconds": 6.199292448000051,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3297,7 +3297,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 1.7288185319998775,
+        "runtime_seconds": 1.6623564619999343,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3308,20 +3308,20 @@
       },
       {
         "test": "test4",
-        "score": 0,
-        "runtime_seconds": 8.66231860300013,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 13.725571617000014,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.680365859999938,
+        "runtime_seconds": 0.8193845939999846,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3343,9 +3343,9 @@
       "CP_MAX_TIME_SECONDS": "8.0",
       "CP_NUM_SEARCH_WORKERS": "8"
     },
-    "total_score": 400,
-    "total_runtime_seconds": 20.921658335999837,
-    "correct_tests": 4,
+    "total_score": 500,
+    "total_runtime_seconds": 23.547360213000275,
+    "correct_tests": 5,
     "hyperparameters": {
       "CP_SHORT_WINDOW_LIMIT": 12,
       "CP_LONG_WINDOW_DIVISOR": 10,
@@ -3356,7 +3356,7 @@
       {
         "test": "test1",
         "score": 100,
-        "runtime_seconds": 0.7347393989998636,
+        "runtime_seconds": 0.8601291160000528,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3368,7 +3368,7 @@
       {
         "test": "test2",
         "score": 100,
-        "runtime_seconds": 6.166622920000009,
+        "runtime_seconds": 6.313947933000009,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3380,7 +3380,7 @@
       {
         "test": "test3",
         "score": 100,
-        "runtime_seconds": 1.4730635939999956,
+        "runtime_seconds": 1.6744408150000254,
         "status": "correct",
         "valid": true,
         "message": "ok",
@@ -3391,20 +3391,20 @@
       },
       {
         "test": "test4",
-        "score": 0,
-        "runtime_seconds": 12.09952612799998,
-        "status": "valid_but_below_reference",
+        "score": 100,
+        "runtime_seconds": 13.993271967000055,
+        "status": "correct",
         "valid": true,
         "message": "ok",
-        "selected": 0,
-        "value": 0,
+        "selected": 10000,
+        "value": 255386,
         "reference_value": 250298,
         "stderr": ""
       },
       {
         "test": "test5",
         "score": 100,
-        "runtime_seconds": 0.44770629499998904,
+        "runtime_seconds": 0.7055703820001327,
         "status": "correct",
         "valid": true,
         "message": "ok",

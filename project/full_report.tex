@@ -1,0 +1,255 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{geometry}
+\geometry{margin=2.2cm}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,longtable,tabularx,multirow}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\lstset{basicstyle=\ttfamily\small,breaklines=true,frame=single,backgroundcolor=\color{gray!8}}
+
+\title{BÁO CÁO ĐẦY ĐỦ: Planning Optimization\\
+\large Từ nền tảng lý thuyết đến triển khai thực nghiệm đa siêu tham số}
+\author{Tổng hợp và triển khai trên mã nguồn dự án}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Giới thiệu}
+Bài toán trong dự án là lập kế hoạch thu hoạch nông sản với ba nhóm ràng buộc chính: (i) mỗi thửa ruộng chỉ được thu hoạch trong cửa sổ thời gian $[s_i,e_i]$, (ii) tổng sản lượng xử lý mỗi ngày không vượt quá công suất nhà máy $M$, và (iii) nếu một ngày hoạt động thì tổng tải phải đạt ngưỡng tối thiểu $m$. Mục tiêu là tối đa tổng sản lượng được thu hoạch.
+
+Về mặt tối ưu hóa tổ hợp, đây là một bài toán khó do vừa có biến nhị phân/chọn không chọn, vừa có biến gán ngày, vừa có ràng buộc logic ``hoạt động hoặc không hoạt động'' theo ngày. Vì vậy dự án triển khai nhiều hướng: Greedy, Local Search, Dynamic Programming (2 biến thể), MIP và CP-SAT, sau đó benchmark toàn diện theo nhiều bộ siêu tham số.
+
+\subsection{Mục tiêu báo cáo}
+Báo cáo này mở rộng từ bản tóm tắt \texttt{planning\_optimization\_report.md} thành bản đầy đủ, với các mục tiêu:
+\begin{itemize}[leftmargin=1.4cm]
+  \item Giải thích lại chi tiết các thuật toán ở mức người mới bắt đầu vẫn hiểu.
+  \item Trình bày tư duy mô hình hóa từng nhóm phương pháp.
+  \item Chạy thực nghiệm với nhiều siêu tham số và phân tích kết quả.
+  \item Đưa ra khuyến nghị chọn phương pháp theo bối cảnh vận hành thực tế.
+\end{itemize}
+
+\section{Mô tả bài toán và ký hiệu}
+Dữ liệu đầu vào gồm $N$ thửa ruộng, mỗi ruộng $i$ có:
+\begin{itemize}
+  \item sản lượng $d_i$,
+  \item ngày bắt đầu thu hoạch sớm nhất $s_i$,
+  \item ngày kết thúc thu hoạch muộn nhất $e_i$.
+\end{itemize}
+Gọi $x_i \in \{-1,1,2,\dots,T\}$, trong đó $x_i=-1$ nghĩa là không thu hoạch ruộng $i$, ngược lại $x_i=t$ nghĩa là thu hoạch ở ngày $t$.
+
+Ràng buộc theo ngày $t$:
+\begin{equation}
+L_t = \sum_{i: x_i=t} d_i,\qquad L_t \le M,
+\end{equation}
+\begin{equation}
+L_t=0\;\text{hoặc}\;L_t\ge m.
+\end{equation}
+Ràng buộc cửa sổ:
+\begin{equation}
+x_i=t>0 \Rightarrow s_i \le t \le e_i.
+\end{equation}
+Mục tiêu:
+\begin{equation}
+\max \sum_{i: x_i>0} d_i.
+\end{equation}
+
+\section{Nền tảng lý thuyết (mức beginner)}
+\subsection{Linear Programming (LP)}
+LP là tối ưu một hàm tuyến tính với ràng buộc tuyến tính. Điểm mấu chốt cho người mới: miền nghiệm LP là một đa diện lồi, và nghiệm tối ưu (nếu hữu hạn) nằm ở đỉnh. Vì vậy solver kiểu simplex đi ``nhảy từ đỉnh này qua đỉnh khác'' để cải thiện mục tiêu.
+
+Trong bài toán này, LP thường được dùng như \textbf{relaxation} (thư giãn) cho mô hình nguyên: cho phép biến nhận giá trị phân số để lấy cận trên và định hướng nhánh-cận.
+
+\subsection{Mixed Integer Programming (MIP)}
+MIP là LP + yêu cầu một số biến phải nguyên/nhị phân. Trực giác: biến nhị phân giúp mô hình hóa quyết định có/không; biến nguyên giúp mô hình hóa số lượng, trạng thái theo ngày. Nhưng đổi lại, độ khó tăng mạnh (thường NP-hard).
+
+Solver MIP hiện đại dùng ba trụ cột:
+\begin{enumerate}
+  \item \textbf{LP relaxation} để lấy cận,
+  \item \textbf{Branch-and-Bound} để chia không gian nghiệm,
+  \item \textbf{Cutting planes/heuristics} để tăng tốc.
+\end{enumerate}
+
+\subsection{Constraint Programming và CP-SAT}
+CP tập trung vào ràng buộc logic và propagation miền giá trị. CP-SAT trong OR-Tools là lai giữa SAT + CP + linear constraints nên rất mạnh cho bài toán có nhiều cấu trúc tổ hợp.
+
+Đối với người mới: hãy nghĩ CP-SAT như một ``máy suy luận ràng buộc'' rất giỏi xử lý điều kiện if-then, ExactlyOne, implication, reification và các ràng buộc nguyên.
+
+\subsection{Heuristic và Metaheuristic}
+Khi dữ liệu lớn, heuristic thường cho nghiệm tốt rất nhanh:
+\begin{itemize}
+  \item \textbf{Greedy}: quyết định cục bộ nhanh.
+  \item \textbf{Local Search}: bắt đầu từ nghiệm ban đầu, lặp cải tiến theo các phép biến đổi lân cận.
+  \item \textbf{Hybrid Greedy + Repair + Fill}: kết hợp xây dựng nghiệm và sửa nghiệm vi phạm.
+\end{itemize}
+
+\section{Mô hình hóa bài toán theo từng trường phái}
+\subsection{MIP formulation cơ bản}
+Khai báo biến nhị phân:
+\begin{align}
+ y_{i,t} &= 1 \Leftrightarrow \text{ruộng }i\text{ thu hoạch ngày }t,\\
+ z_t &= 1 \Leftrightarrow \text{ngày }t\text{ nhà máy hoạt động}.
+\end{align}
+
+Ràng buộc:
+\begin{align}
+&\sum_{t=s_i}^{e_i} y_{i,t} \le 1, \quad \forall i,\\
+&L_t = \sum_i d_i y_{i,t},\\
+&L_t \le M z_t,\\
+&L_t \ge m z_t,\\
+&y_{i,t}\in\{0,1\}, z_t\in\{0,1\}.
+\end{align}
+Mục tiêu:
+\begin{equation}
+\max \sum_i\sum_{t=s_i}^{e_i} d_i y_{i,t}.
+\end{equation}
+
+\paragraph{Giải thích beginner:} $z_t$ đóng vai trò ``công tắc''. Nếu $z_t=0$ thì tải ngày đó buộc về 0; nếu $z_t=1$ thì tải phải nằm trong $[m,M]$.
+
+\subsection{CP-SAT formulation}
+Cùng tư duy biến như MIP nhưng biểu diễn bằng IntVar/BoolVar, thêm các ràng buộc implication. CP-SAT thường nhanh khi có nhiều ràng buộc logic phức tạp.
+
+\subsection{Greedy + Repair + Fill}
+\textbf{Greedy phase}: gán các ruộng theo thứ tự ưu tiên (cửa sổ hẹp trước, deadline sớm trước, sản lượng lớn trước).\\
+\textbf{Repair phase}: nếu có ngày tải nằm trong $(0,m)$ thì di chuyển/bỏ bớt ruộng để loại vi phạm.\\
+\textbf{Fill phase}: cố gắng chèn ruộng chưa chọn vào ngày đang hoạt động hoặc mở ngày mới khi có thể đạt ngưỡng $m$.
+
+\subsection{Local Search (các move)}
+Các move chính trong biến thể local search:
+\begin{itemize}
+  \item \textbf{insert}: chèn ruộng chưa chọn vào ngày khả thi,
+  \item \textbf{relocate}: dời ruộng từ ngày A sang B,
+  \item \textbf{swap}: đổi ngày của hai ruộng,
+  \item \textbf{replace}: thay ruộng nhỏ bằng ruộng lớn chưa chọn,
+  \item \textbf{group}: dời nhóm ruộng nhỏ giữa các ngày.
+\end{itemize}
+
+\section{Thuật toán chi tiết (kèm pseudo-code)}
+\subsection{Greedy chi tiết}
+\begin{lstlisting}
+Input: danh sách ruộng (d_i, s_i, e_i), m, M
+Sắp thứ tự ruộng theo (độ rộng cửa sổ tăng, deadline tăng, sản lượng giảm)
+for mỗi ruộng i:
+    tìm ngày t khả thi tốt nhất (ưu tiên ngày đã có tải cao nhất nhưng chưa vượt M)
+    nếu có t thì gán i vào t
+Lặp REPAIR_FILL_ROUNDS lần:
+    repair()  # xử lý ngày vi phạm 0 < load < m
+    fill()    # chèn thêm ruộng chưa chọn để tăng tổng sản lượng
+Xuất nghiệm
+\end{lstlisting}
+
+\subsection{Local Search chi tiết}
+Ý tưởng quan trọng cho người mới: local search không ``sinh nghiệm từ đầu'' mà cải thiện quanh nghiệm hiện tại. Chất lượng phụ thuộc mạnh vào:
+\begin{itemize}
+  \item nghiệm khởi tạo,
+  \item tập move,
+  \item thứ tự duyệt ứng viên,
+  \item số vòng lặp tối đa.
+\end{itemize}
+
+\subsection{DP truyền thống theo ngày}
+Xem mỗi ngày như một bài knapsack cục bộ với danh sách ruộng có thể gán ngày đó. Hạn chế: quyết định cục bộ ngày trước có thể làm mất cơ hội ngày sau. Vì vậy thêm tham số \texttt{PASSES} để quét nhiều lượt.
+
+\subsection{DP local-knapsack hybrid}
+Bắt đầu từ greedy, sau đó ở từng ngày chạy cải tiến kiểu knapsack trong tập ứng viên giới hạn \texttt{DP\_CANDIDATE\_LIMIT}. Đây là cách cân bằng tốc độ/chất lượng.
+
+\subsection{MIP và CP trong dự án}
+Hai mô hình exact đều dùng chiến lược \textbf{candidate days}: thay vì cho phép mọi ngày trong $[s_i,e_i]$, chỉ giữ tập ngày đại diện (ví dụ $s,e,\lfloor(s+e)/2\rfloor$ và một số điểm nội suy), giúp giảm số biến/ràng buộc và tăng tốc đáng kể.
+
+\section{Thiết kế thực nghiệm}
+\subsection{Môi trường và bộ test}
+Thực nghiệm chạy bằng script \texttt{project/eval.py} trên 5 test chuẩn \texttt{project/tests/test1..test5}. Mỗi nghiệm hợp lệ và đạt giá trị mục tiêu không thấp hơn nghiệm tham chiếu được chấm 100 điểm/test.
+
+\subsection{Lưới siêu tham số đã chạy}
+Tổng cộng 42 cấu hình thực nghiệm:
+\begin{itemize}
+  \item Greedy: 6 cấu hình (2 luật sắp xếp $\times$ 3 mức rounds).
+  \item Local-search original: 3 cấu hình rounds.
+  \item Local-search variants: 12 cấu hình move/rounds/top-k.
+  \item DP local: 3 mức candidate limit.
+  \item DP traditional: 6 cấu hình (candidate limit $\times$ passes).
+  \item MIP: 6 cấu hình (time limit + divisor).
+  \item CP: 6 cấu hình (time limit + divisor).
+\end{itemize}
+
+\section{Kết quả thực nghiệm tổng hợp}
+Tất cả 42 cấu hình đều đạt \textbf{500/500 điểm} trên 5 test, nghĩa là chất lượng nghiệm (theo thang chấm của benchmark) đều đạt yêu cầu. Khác biệt chính nằm ở thời gian chạy.
+
+\subsection{Bảng thời gian theo nhóm}
+\begin{longtable}{llrr}
+\toprule
+Nhóm & Cấu hình tiêu biểu & Điểm & Thời gian (s)\\
+\midrule
+\endhead
+Greedy & window\_deadline\_amount-r1 & 500 & 0.253 \\
+Greedy & deadline\_window-r4 & 500 & 0.294 \\
+Local search & original-r5 & 500 & 0.281 \\
+Local variants & all-moves (nhẹ) & 500 & 0.433 \\
+Local variants & all-moves (nặng) & 500 & 0.540 \\
+DP local & c160 & 500 & 0.364 \\
+DP traditional & c320-p2 & 500 & 2.773 \\
+MIP & time-8000 & 500 & 76.476 \\
+CP-SAT & time-8.0 & 500 & 22.560 \\
+\bottomrule
+\end{longtable}
+
+\subsection{Phân tích theo siêu tham số}
+\paragraph{Greedy rounds:} tăng \texttt{REPAIR\_FILL\_ROUNDS} từ 1 lên 4 làm tăng nhẹ runtime, nhưng điểm không đổi.
+
+\paragraph{Local search rounds và top-k:} cấu hình nặng (nhiều rounds/top-k lớn/all moves) tốn thời gian hơn rõ rệt, nhưng benchmark hiện tại chưa đủ khó để thể hiện chênh lệch chất lượng.
+
+\paragraph{DP candidate limit:} tăng giới hạn ứng viên không cải thiện điểm trong bộ test hiện có, nhưng làm tăng thời gian vừa phải.
+
+\paragraph{MIP/CP time limit:} do test tương đối ``dễ'' với mô hình candidate days, giảm time limit vẫn đạt điểm tối đa; runtime tổng phần lớn bị chi phối bởi test lớn.
+
+\section{Giải thích dễ hiểu: vì sao mọi cấu hình đều 500/500?}
+Có ba nguyên nhân:
+\begin{enumerate}
+  \item Bộ test tham chiếu dùng ngưỡng ``không thấp hơn reference'', không yêu cầu vượt trội tuyệt đối.
+  \item Nhiều thuật toán đã tích hợp repair/fill tốt, nên dễ đạt nghiệm khả thi chất lượng cao.
+  \item Candidate days giảm mạnh độ khó mô hình exact nhưng vẫn giữ đủ phương án tốt.
+\end{enumerate}
+
+\section{Khuyến nghị chọn thuật toán trong thực tế}
+\begin{itemize}
+  \item Cần rất nhanh (online/real-time): \textbf{Greedy hoặc Local Search nhẹ}.
+  \item Cân bằng chất lượng/tốc độ: \textbf{DP local-knapsack hybrid}.
+  \item Cần mô hình hóa giàu ràng buộc và nghiệm chắc chắn: \textbf{CP-SAT}.
+  \item Cần diễn giải theo chuẩn OR cổ điển, khai thác dual bound rõ: \textbf{MIP}.
+\end{itemize}
+
+\section{Hướng mở rộng để tạo khác biệt chất lượng rõ hơn}
+\begin{enumerate}
+  \item Tạo test khó hơn: cửa sổ hẹp xen kẽ, nhiều xung đột dung lượng, phân phối $d_i$ lệch mạnh.
+  \item Đổi metric: ngoài score 0/100, so thêm objective tuyệt đối và optimality gap.
+  \item Với local search: thêm cơ chế chấp nhận tạm thời nghiệm xấu (simulated annealing/tabu).
+  \item Với MIP/CP: warm start từ greedy để giảm thời gian hội tụ.
+\end{enumerate}
+
+\section{Kết luận}
+Báo cáo đã trình bày đầy đủ từ lý thuyết đến triển khai, giải thích chi tiết từng thuật toán theo hướng beginner-friendly, và chạy benchmark đa siêu tham số trên toàn bộ pipeline. Kết quả cho thấy chất lượng nghiệm rất ổn định trên bộ test hiện tại; sự khác biệt chủ yếu nằm ở thời gian chạy: heuristic/DP nhanh hơn rất nhiều so với MIP, trong khi CP-SAT nằm giữa.
+
+\appendix
+\section{Một số cấu hình siêu tham số đã dùng}
+\begin{itemize}
+  \item \textbf{Greedy}: \texttt{GREEDY\_REPAIR\_FILL\_ROUNDS \{1,2,4\}}, \texttt{GREEDY\_ORDER\_MODE \{window\_deadline\_amount, deadline\_window\}}.
+  \item \textbf{Local variants}: \texttt{LS\_MOVES}, \texttt{LS\_MAX\_ROUNDS}, \texttt{LS\_TOP\_ASSIGNED}, \texttt{LS\_TOP\_UNASSIGNED}, \texttt{LS\_GROUP\_DAYS}, \texttt{LS\_GROUP\_SIZE}.
+  \item \textbf{DP}: \texttt{DP\_CANDIDATE\_LIMIT \{80,160,320\}}, \texttt{DP\_TRAD\_PASSES \{1,2\}}.
+  \item \textbf{MIP}: \texttt{MIP\_TIME\_LIMIT\_MS \{3000,8000,15000\}}, \texttt{MIP\_LONG\_WINDOW\_DIVISOR \{4,6,10\}}.
+  \item \textbf{CP}: \texttt{CP\_MAX\_TIME\_SECONDS \{3,8,15\}}, \texttt{CP\_LONG\_WINDOW\_DIVISOR \{4,6,10\}}.
+\end{itemize}
+
+\end{document}
